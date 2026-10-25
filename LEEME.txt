@@ -1,0 +1,39 @@
+PORTFOLIO DE MARÍA EMILIA TOLEDO / ARKAIKA
+=========================================
+
+QUÉ INCLUYE
+- index.html: web responsive completa con menú móvil, filtros de proyectos y ficha desplegable.
+- assets/logo-arkaika.png: tu logo original, tal como lo enviaste.
+- assets/estructura-cubierta.png: captura original de tu modelo y de la web de referencia.
+
+CÓMO VER LA WEB
+1. Descomprime el ZIP completo en una carpeta.
+2. Abre index.html con Chrome, Firefox, Edge o Safari.
+3. No necesitas instalar nada para ver la página.
+
+ANTES DE PUBLICAR
+- Edita index.html con un editor de texto (VS Code, por ejemplo).
+- Revisa el texto de presentación y adapta a tu trayectoria concreta.
+- Sustituye assets/estructura-cubierta.png por una imagen limpia del modelo cuando la tengas.
+- Elimina o actualiza las dos tarjetas que están etiquetadas como "Espacio reservado".
+- Añade tus datos reales a la sección Contacto. He dejado una indicación en vez de inventar un email.
+- En las fichas de proyectos conviene indicar: objetivo, técnica de captura/modelado,
+  herramientas utilizadas, proceso, resultados y tu papel concreto.
+- La web usa tipografías de Google Fonts si hay conexión; si no, muestra tipografías locales.
+
+CÓMO PUBLICAR
+- Para tener el sitio tal cual, puedes subir la carpeta a un hosting estático (Netlify,
+  GitHub Pages, Cloudflare Pages, etc.) manteniendo index.html y assets/ juntos.
+- Si quieres seguir en Google Sites, la estructura/estilos pueden servirte de referencia;
+  Google Sites no permite sustituir libremente toda su plantilla por este HTML como
+  si fuera un hosting tradicional. Sí admite insertar bloques HTML/CSS/JS.
+
+IDENTIDAD Y MARCA
+- Se utiliza el nombre 'Arkaika' como etiqueta de proyecto, no como marca registrada.
+- No se muestra el símbolo ®. Es recomendable comprobar marcas similares en OEPM y EUIPO.
+- Los derechos de uso/registro dependen de posibles derechos anteriores, incluso
+  aunque ya uses el nombre. Esta explicación no sustituye asesoramiento jurídico.
+
+PALETA
+Terracota #B76D50 | Arena #C99F76 | Piedra #586A65 | Caliza #E6E5E1
+Carbón #252923 | Fondo #F6F2EA
