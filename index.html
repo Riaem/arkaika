@@ -3676,6 +3676,318 @@
       }
 
     }
+
+    /* AJUSTES RESPONSIVOS PARA PORTÁTIL Y MÓVIL */
+    @media (min-width: 901px) and (max-width: 1150px) {
+      .nav-wrap {
+        gap: clamp(18px, 2.5vw, 28px);
+      }
+
+      .nav-links {
+        gap: clamp(17px, 2.4vw, 27px);
+      }
+
+      .nav-links .contact-nav {
+        padding-inline: 14px;
+      }
+
+      .hero-grid {
+        gap: clamp(24px, 4vw, 46px);
+      }
+
+      .tools-bottom {
+        grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+        gap: clamp(24px, 3vw, 40px);
+      }
+    }
+
+    /* Evita que el bloque gráfico del relato se salga en portátiles bajos. */
+    @media (min-width: 901px) and (max-height: 760px) {
+      .trace-grid {
+        height: calc(100vh - 94px);
+        height: calc(100svh - 94px);
+        gap: clamp(24px, 4vw, 56px);
+      }
+
+      .trace-image-stage {
+        height: min(42vw, calc(100svh - 180px));
+        min-height: 350px;
+      }
+
+      .trace-title {
+        margin-block: 14px 20px;
+        font-size: clamp(2.7rem, 4.5vw, 4.2rem);
+      }
+
+      .trace-description {
+        font-size: clamp(.92rem, 1vw, 1.02rem);
+        line-height: 1.6;
+      }
+
+      .trace-signature {
+        margin-top: clamp(18px, 3vh, 30px);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-wrap {
+        height: 78px;
+      }
+
+      .brand-logo {
+        width: 48px;
+        height: 48px;
+      }
+
+      .brand {
+        gap: 12px;
+      }
+
+      .brand-copy {
+        white-space: normal;
+      }
+
+      .brand-name {
+        font-size: clamp(.94rem, 2.6vw, 1.08rem);
+      }
+
+      .brand-tag {
+        font-size: .52rem;
+        letter-spacing: .09em;
+      }
+
+      .menu-toggle {
+        display: block;
+        min-width: 44px;
+        min-height: 44px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 78px;
+        padding: 22px clamp(20px, 5vw, 48px);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 14px 22px #0001;
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .nav-links .contact-nav {
+        align-self: flex-start;
+      }
+
+      .trace-grid {
+        top: 78px;
+        height: calc(100vh - 78px);
+        height: calc(100svh - 78px);
+      }
+
+      .section-head {
+        display: grid;
+        gap: 14px;
+        align-items: start;
+      }
+
+      .section-intro {
+        max-width: 620px;
+        margin-top: 0;
+      }
+
+      .about-layout,
+      .contact-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .about-layout {
+        gap: 28px;
+      }
+
+      .about-text {
+        padding-top: 0;
+      }
+
+      .tools-bottom {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+      }
+
+      .tools-gallery {
+        justify-self: center;
+        width: min(100%, 420px);
+      }
+
+      .contact-inner {
+        gap: 28px;
+        padding-block: clamp(68px, 9vw, 88px);
+      }
+
+      .contact-aside {
+        justify-self: center;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        padding-inline: clamp(18px, 5vw, 28px);
+      }
+
+      .hero-grid {
+        padding-inline: 28px;
+      }
+
+      .section-pad {
+        padding-block: clamp(58px, 10vw, 82px);
+      }
+
+      .section-title {
+        font-size: clamp(2.15rem, 7.8vw, 3.3rem);
+        line-height: 1.08;
+        overflow-wrap: anywhere;
+      }
+
+      .filters {
+        gap: 8px;
+        margin-bottom: 22px;
+      }
+
+      .filter {
+        min-height: 44px;
+        padding: 9px 13px;
+      }
+
+      .project-grid {
+        gap: 16px;
+      }
+
+      .project-info {
+        padding: 20px 18px 22px;
+      }
+
+      .project-meta,
+      .project-title,
+      .project-desc {
+        overflow-wrap: anywhere;
+      }
+
+      .project-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .study-list {
+        gap: 16px;
+      }
+
+      .contact-inner {
+        padding-block: 64px;
+      }
+
+      .contact-aside {
+        width: fit-content;
+        padding: clamp(20px, 5vw, 28px);
+      }
+
+      .contact-social-link {
+        width: 100%;
+        grid-template-columns: 46px minmax(0, 1fr);
+      }
+
+      .contact-social-label {
+        overflow-wrap: anywhere;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      dialog {
+        width: calc(100% - 24px);
+        max-width: calc(100% - 24px);
+        max-height: 92vh;
+        max-height: 92svh;
+      }
+
+      .modal-top {
+        gap: 12px;
+        padding: 15px clamp(16px, 4vw, 24px);
+      }
+
+      .modal-top span {
+        font-size: .62rem;
+        letter-spacing: .08em;
+      }
+
+      .modal-close,
+      .contact-email-close {
+        width: 44px;
+        height: 44px;
+        flex-basis: 44px;
+      }
+
+      .modal-copy {
+        padding: 22px clamp(18px, 5vw, 28px) 28px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .hero-grid {
+        padding-inline: 24px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .contact-section .section-title {
+        font-size: clamp(2rem, 9vw, 2.8rem);
+      }
+    }
+
+    /* En móviles apaisados, el relato pasa a flujo normal para no comprimirlo. */
+    @media (max-width: 760px) and (max-height: 620px) {
+      .trace-section {
+        height: auto;
+        min-height: 0;
+      }
+
+      .trace-track {
+        flex: none;
+      }
+
+      .trace-grid {
+        position: relative;
+        top: auto;
+        height: auto;
+        grid-template-rows: auto;
+        padding-block: 24px;
+      }
+
+      .trace-art {
+        height: auto;
+      }
+
+      .trace-image-stage {
+        flex: none;
+        height: min(70vw, 340px);
+        min-height: 220px;
+      }
+
+      .trace-copy {
+        transform: none;
+        padding-bottom: 18px;
+      }
+    }
   </style>
 </head>
 
@@ -6832,6 +7144,7 @@
         const titles = document.querySelectorAll('main .section-title');
         const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')
           ?? { matches: false };
+        const mobileLayout = window.matchMedia('(max-width: 760px)');
 
         if (!titles.length || reduceMotion.matches || !('IntersectionObserver' in window)) return;
 
@@ -6973,12 +7286,15 @@
               visibleTitles.add(title);
               if (title === projectsTitle) startProjectQuote();
               if (title === aboutTitle) startAboutReveal();
-              if (title === toolsTitle) startToolsReveal();
+              if (title === toolsTitle) {
+                if (mobileLayout.matches) resetAboutReveal();
+                startToolsReveal();
+              }
             } else if (!isInTriggerZone && wasInTriggerZone) {
               title.classList.remove('section-title-visible');
               title.classList.add('section-title-pending');
               if (title === projectsTitle) resetProjectQuote();
-              if (title === aboutTitle) resetAboutReveal();
+              if (title === aboutTitle && !mobileLayout.matches) resetAboutReveal();
               if (title === toolsTitle) completeToolsReveal();
               visibleTitles.delete(title);
             }
@@ -7024,6 +7340,28 @@
       );
       const projectSection = document.querySelector('#proyectos');
 
+      function proyectoTieneContenido(project) {
+        const textoPendiente = /pendiente|espacio reservado|aquí (?:puedes|podr[aá]s)|pr[oó]ximo proyecto|añadir la descripci[oó]n|presentar el trabajo de fin de grado/i;
+        const title = project.querySelector('.project-title')?.textContent?.trim() || '';
+        const tieneTitulo = title.length > 0 && !textoPendiente.test(title);
+        const tieneImagen = Boolean(project.querySelector(
+          '.project-art img[src]:not([src=""]), .project-art object[data]:not([data=""]), .project-art video[poster]:not([poster=""]), .project-art svg, .project-art canvas'
+        ));
+        const tieneDescripcion = [
+          project.querySelector('.project-desc')?.textContent,
+          project.dataset.details
+        ].some(text => {
+          const contenido = text?.replace(/\s+/g, ' ').trim() || '';
+          return contenido.length > 0 && !textoPendiente.test(contenido);
+        });
+
+        return tieneTitulo || tieneImagen || tieneDescripcion;
+      }
+
+      const proyectosSinContenido = new Set(
+        [...projects].filter(project => !proyectoTieneContenido(project))
+      );
+
       function mostrarCategoria(categoria) {
         projectSection.classList.toggle('showing-featured', categoria === 'destacados');
 
@@ -7037,6 +7375,11 @@
 
         // Mostrar los proyectos correspondientes
         projects.forEach(project => {
+
+          if (proyectosSinContenido.has(project)) {
+            project.hidden = true;
+            return;
+          }
 
           if (categoria === 'destacados') {
 
@@ -7414,7 +7757,6 @@
         const title = section.querySelector('.trace-title');
         const description = section.querySelector('.trace-description');
         const signature = section.querySelector('.trace-signature');
-
         if (!stickyContainer || !watercolor || !render || !caption
           || !eyebrow || !title || !description || !signature) return;
 
