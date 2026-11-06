@@ -434,6 +434,39 @@
       margin: 15px 0 0
     }
 
+    @keyframes section-title-enter {
+      from {
+        opacity: 0;
+        transform: translate3d(-64px, 0, 0)
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0)
+      }
+    }
+
+    .section-title.section-title-pending {
+      opacity: 0;
+      transform: translate3d(-64px, 0, 0)
+    }
+
+    .section-title.section-title-visible {
+      animation: section-title-enter 1.7s cubic-bezier(.2, .65, .3, 1) both
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .section-title.section-title-pending {
+        opacity: 1;
+        transform: none
+      }
+
+      .section-title.section-title-visible {
+        animation: none
+      }
+
+    }
+
     .section-intro {
       max-width: 440px;
       color: var(--muted);
@@ -511,8 +544,72 @@
       transition: transform .5s
     }
 
-    .project:hover .project-art img {
-      transform: scale(1.035)
+    .project-haltern-70b .project-art,
+    .project-dressel-20f .project-art,
+    .project-oberaden-83 .project-art {
+      background: #E5E5E3;
+    }
+
+    .project-haltern-70b .project-art img,
+    .project-dressel-20f .project-art img,
+    .project-oberaden-83 .project-art img {
+      object-fit: contain;
+    }
+
+    .project-haltern-70b .haltern-interactive-cover {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #E5E5E3;
+      transform: scale(1.25);
+      transition: transform .5s ease;
+    }
+
+    .project-haltern-70b:hover .haltern-interactive-cover {
+      transform: scale(1.28);
+    }
+
+    .project-dressel-20f .dressel-interactive-cover {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #E5E5E3;
+      transform: scale(1.05);
+      transition: transform .5s ease;
+    }
+
+    .project-dressel-20f:hover .dressel-interactive-cover {
+      transform: scale(1.08);
+    }
+
+    .project-oberaden-83 .oberaden-interactive-cover {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #E5E5E3;
+      transform: scale(1.25);
+      transition: transform .5s ease;
+    }
+
+    .project-oberaden-83:hover .oberaden-interactive-cover {
+      transform: scale(1.28);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .project-haltern-70b .haltern-interactive-cover,
+      .project-dressel-20f .dressel-interactive-cover,
+      .project-oberaden-83 .oberaden-interactive-cover {
+        transition: none !important;
+      }
     }
 
     .project-art .project-number {
@@ -528,6 +625,78 @@
 
     #proyectos.showing-featured .project[data-destacado="true"] .project-number {
       display: none;
+    }
+
+    #proyectos.showing-featured .project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      padding: clamp(18px, 3vw, 34px);
+      border-radius: 8px;
+      background: rgba(183, 109, 80, .14);
+    }
+
+    .featured-project-copy {
+      display: none;
+    }
+
+    #proyectos.showing-featured .featured-project-copy {
+      display: flex;
+      flex-direction: column;
+      grid-column: 1;
+      align-self: stretch;
+      margin: 0;
+    }
+
+    .featured-project-title {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(1.75rem, 2.8vw, 2.6rem);
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: -.04em;
+      text-align: center;
+    }
+
+    .featured-project-description {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.7;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .featured-project-cta {
+      display: flex;
+      width: min(100%, 220px);
+      min-height: 52px;
+      margin: auto auto 0;
+      font-size: .78rem;
+    }
+
+    #proyectos.showing-featured .project-civil3d-03[data-destacado="true"] {
+      grid-column: 2;
+      border: 0;
+      background: transparent;
+      cursor: default;
+    }
+
+    #proyectos.showing-featured .project-civil3d-03[data-destacado="true"] .project-info {
+      display: none;
+    }
+
+    #proyectos.showing-featured .project-civil3d-03[data-destacado="true"] .project-art {
+      aspect-ratio: 1137 / 628;
+      background: transparent;
+    }
+
+    #proyectos.showing-featured .project-civil3d-03[data-destacado="true"] .civil3d-architecture-svg {
+      transform: none;
+    }
+
+    #proyectos.showing-featured .project-civil3d-03[data-destacado="true"]:hover {
+      transform: none;
+      box-shadow: none;
     }
 
     .project-info {
@@ -600,6 +769,297 @@
       background-size: 30px 30px;
     }
 
+    .project-sexi .project-art {
+      aspect-ratio: 1414 / 1000;
+    }
+
+    .project-sexi .project-art img {
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .project-sexi:hover .project-art img {
+      transform: none;
+    }
+
+    .project-qgis-02 .project-art {
+      aspect-ratio: 1414 / 1000;
+    }
+
+    .project-qgis-02 .project-art img {
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .project-qgis-02:hover .project-art img {
+      transform: none;
+    }
+
+    .project-qgis-03 .project-art {
+      aspect-ratio: 1414 / 1000;
+    }
+
+    .project-qgis-03 .project-art img {
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .project-qgis-03:hover .project-art img {
+      transform: none;
+    }
+
+    .project-qgis-04 .project-art {
+      aspect-ratio: 1414 / 1000;
+    }
+
+    .project-qgis-04 .project-art img {
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .project-qgis-04:hover .project-art img {
+      transform: none;
+    }
+
+    .project-qgis-05 .project-art {
+      aspect-ratio: 1414 / 1000;
+    }
+
+    .project-qgis-05 .project-art img {
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .project-qgis-05:hover .project-art img {
+      transform: none;
+    }
+
+    .project-civil3d .project-art,
+    .project-civil3d-02 .project-art,
+    .project-civil3d-03 .project-art {
+      aspect-ratio: 3 / 2;
+      background-color: #f8f8f2;
+      background-image: linear-gradient(to right, rgba(32, 42, 38, .045) 1px, transparent 1px), linear-gradient(to bottom, rgba(32, 42, 38, .045) 1px, transparent 1px);
+      background-size: 6.2% 11.2%;
+    }
+
+    .project-civil3d .project-art img {
+      transform: scale(1.1);
+    }
+
+    .project-civil3d:hover .project-art img {
+      transform: scale(1.1);
+    }
+
+    .project-civil3d-02 .project-art img,
+    .project-civil3d-02:hover .project-art img {
+      transform: scale(1.1);
+    }
+
+    .project-civil3d .civil3d-cover,
+    .project-civil3d-02 .civil3d-cover {
+      background: transparent;
+    }
+
+    .project-civil3d .civil3d-base,
+    .project-civil3d .civil3d-overlay,
+    .project-civil3d-02 .civil3d-base,
+    .project-civil3d-02 .civil3d-overlay {
+      mix-blend-mode: multiply;
+      transform: scale(1.1);
+    }
+
+    .project-civil3d-03 .civil3d-cover,
+    .project-civil3d-03 .civil3d-cover:hover {
+      background: transparent;
+    }
+    .project-civil3d-03 .civil3d-architecture-svg {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      transform: scale(1.12);
+    }
+
+    .project-civil3d-03 .civil3d-architecture-svg .ghost {
+      opacity: .23;
+    }
+
+    .project-civil3d-03 .civil3d-architecture-svg .paint {
+      opacity: .98;
+    }
+
+    .project-civil3d-03 .civil3d-architecture-svg .paint-brush path {
+      fill: none;
+      stroke: #fff;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1 1;
+      stroke-dashoffset: 1;
+      opacity: 0;
+      transition: stroke-dashoffset var(--duration) cubic-bezier(.2, .61, .14, 1), opacity .06s ease;
+      transition-delay: 0s, 0s;
+    }
+
+    .project-civil3d-03 .civil3d-cover.is-drawing .paint-brush path,
+    .project-civil3d-03 .civil3d-cover:hover .paint-brush path {
+      stroke-dashoffset: 0;
+      opacity: var(--op, 1);
+      transition-delay: var(--delay), var(--delay);
+    }
+
+    .project-civil3d-03 .civil3d-architecture-svg .paint-complete {
+      opacity: 0;
+      transition: opacity .45s ease 0s;
+    }
+
+    .project-civil3d-03 .civil3d-cover.is-drawing .paint-complete,
+    .project-civil3d-03 .civil3d-cover:hover .paint-complete {
+      opacity: 1;
+      transition-delay: 3s;
+    }
+
+    .project-civil3d-03 .civil3d-architecture-svg .animated-strokes path {
+      fill: none;
+      stroke: #191f20;
+      stroke-width: 1.95;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      transition: stroke-dashoffset var(--duration) ease;
+      transition-delay: 0s;
+    }
+
+    .project-civil3d-03 .civil3d-cover.is-drawing .animated-strokes path,
+    .project-civil3d-03 .civil3d-cover:hover .animated-strokes path {
+      stroke-dashoffset: 0;
+      transition-delay: var(--delay);
+    }
+
+    .project-civil3d-03 .civil3d-architecture-svg .ink-finish {
+      opacity: 0;
+      transition: opacity .26s ease 0s;
+    }
+
+    .project-civil3d-03 .civil3d-cover.is-drawing .ink-finish,
+    .project-civil3d-03 .civil3d-cover:hover .ink-finish {
+      opacity: 1;
+      transition-delay: 2.225s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .project-civil3d-03 .civil3d-architecture-svg .paint-brush path,
+      .project-civil3d-03 .civil3d-architecture-svg .animated-strokes path,
+      .project-civil3d-03 .civil3d-architecture-svg .paint-complete,
+      .project-civil3d-03 .civil3d-architecture-svg .ink-finish {
+        transition: none !important;
+        transition-delay: 0s !important;
+      }
+
+      .project-civil3d-03 .civil3d-cover.is-drawing .paint-brush path,
+      .project-civil3d-03 .civil3d-cover:hover .paint-brush path,
+      .project-civil3d-03 .civil3d-cover.is-drawing .animated-strokes path,
+      .project-civil3d-03 .civil3d-cover:hover .animated-strokes path {
+        stroke-dashoffset: 0;
+      }
+
+      .project-civil3d-03 .civil3d-cover.is-drawing .paint-complete,
+      .project-civil3d-03 .civil3d-cover:hover .paint-complete,
+      .project-civil3d-03 .civil3d-cover.is-drawing .ink-finish,
+      .project-civil3d-03 .civil3d-cover:hover .ink-finish {
+        opacity: 1;
+      }
+    }
+    .civil3d-cover {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #fff;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: crosshair;
+    }
+
+    .civil3d-cover:focus-visible {
+      outline: 2px solid var(--terracotta);
+      outline-offset: -4px;
+    }
+
+    .civil3d-base,
+    .civil3d-overlay {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .civil3d-base {
+      opacity: .2;
+    }
+
+    .civil3d-overlay {
+      pointer-events: none;
+    }
+
+    .civil3d-trace {
+      fill: none;
+      stroke: #fff;
+      stroke-width: 19;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      transition: stroke-dashoffset .38s cubic-bezier(.2, .65, .3, 1);
+      transition-delay: calc((var(--last-order) - var(--order)) * 22ms);
+    }
+
+    .civil3d-complete {
+      opacity: 0;
+      transition: opacity .35s ease;
+      transition-delay: 0s;
+    }
+
+    .civil3d-cover.is-drawing .civil3d-trace {
+      stroke-dashoffset: 0;
+      transition-delay: calc(var(--order) * 48ms);
+    }
+
+    .civil3d-cover.is-drawing .civil3d-complete {
+      opacity: 1;
+      transition-delay: var(--finish-delay);
+    }
+
+    @media (hover: hover) {
+      .civil3d-cover:hover .civil3d-trace {
+        stroke-dashoffset: 0;
+        transition-delay: calc(var(--order) * 48ms);
+      }
+
+      .civil3d-cover:hover .civil3d-complete {
+        opacity: 1;
+        transition-delay: var(--finish-delay);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .civil3d-trace,
+      .civil3d-complete {
+        transition: none !important;
+        transition-delay: 0s !important;
+      }
+    }
+
     .placeholder.tfg .project-art {
       background: radial-gradient(circle at center, #B76D5030 0 1px, transparent 2px) 0 0 / 20px 20px, linear-gradient(135deg, #ECE4DA, #D5C7B8);
     }
@@ -658,11 +1118,31 @@
       width: 100%;
     }
 
+    .about-video-frame {
+      width: 100%;
+      aspect-ratio: 1764 / 1012;
+    }
+
     .about-figure img {
       display: block;
       width: 100%;
       height: auto;
       object-fit: contain;
+    }
+
+    .about-figure video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .about-video-caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: .78rem;
+      line-height: 1.5;
+      text-align: center;
     }
 
     .about-text {
@@ -710,32 +1190,116 @@
     }
 
     .tools-section {
-      background: var(--surface-2)
+      background: var(--surface-2);
+      overflow: hidden
     }
 
     .tools-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: clamp(40px, 9vw, 150px);
-      align-items: start
+      display: block
     }
 
     .tools-layout .section-title {
-      margin-bottom: 20px
+      margin-bottom: 0
     }
 
     .tools-layout .section-intro {
-      max-width: 400px;
-      line-height: 1.85
+      max-width: 540px;
+      margin: 0;
+      line-height: 1.85;
+      text-align: justify;
+      hyphens: auto
+    }
+
+    .tools-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 560px
+    }
+
+    .tools-heading {
+      position: relative;
+      z-index: 1;
+    }
+
+    .tools-bottom {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr);
+      gap: clamp(24px, 4vw, 52px);
+      align-items: start;
+      margin-top: 20px
     }
 
     .tool-groups {
       display: grid;
-      gap: 24px
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
+      max-width: 680px;
+      margin-top: 24px
+    }
+
+    .tools-gallery {
+      position: relative;
+      z-index: 0;
+      isolation: isolate;
+      justify-self: end;
+      width: 100%;
+      max-width: 460px;
+      aspect-ratio: 1
+    }
+
+    .tools-watercolor-reveal {
+      position: absolute;
+      z-index: 0;
+      inset: -18% auto -25% -92%;
+      width: 210%;
+      height: 143%;
+      pointer-events: none;
+      transform-origin: center;
+    }
+
+    .tools-watercolor {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+      opacity: .58;
+      transform: translateX(3cm) rotate(-12deg) scale(1.333);
+      transform-origin: 74% 50%;
+    }
+
+    .tools-object {
+      position: absolute;
+      height: auto;
+      filter: drop-shadow(0 14px 16px #49312622)
+    }
+
+    .tools-anforits {
+      z-index: 1;
+      top: 0;
+      right: 0;
+      width: 72%
+    }
+
+    .tools-vaso {
+      z-index: 2;
+      top: 45.8%;
+      left: 0;
+      width: 23.5%
+    }
+
+    .tools-cuenco {
+      z-index: 3;
+      top: 74.8%;
+      left: 11.1%;
+      width: 22.1%
     }
 
     .tool-group {
-      padding-bottom: 25px;
+      width: 390px;
+      max-width: 100%;
+      padding-bottom: 18px;
       border-bottom: 1px solid #C9CDC6
     }
 
@@ -760,6 +1324,99 @@
       background: #FFFDF8;
       border: 1px solid #D8DAD1;
       padding: 10px 14px
+    }
+
+    @keyframes tools-copy-enter {
+      from {
+        opacity: 0;
+        transform: translate3d(-24px, 14px, 0)
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0)
+      }
+    }
+
+    @keyframes tool-group-enter {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 18px, 0)
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0)
+      }
+    }
+
+    @keyframes about-text-enter {
+      from {
+        opacity: 0;
+        transform: translate3d(24px, 14px, 0)
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0)
+      }
+    }
+
+    #herramientas .section-title.section-title-visible {
+      animation-duration: 1.2s
+    }
+
+    #herramientas .tools-copy-pending {
+      opacity: 0;
+      transform: translate3d(-24px, 14px, 0)
+    }
+
+    #herramientas .tools-copy-visible {
+      animation: tools-copy-enter 1.2s cubic-bezier(.2, .65, .3, 1) both
+    }
+
+    #herramientas .tool-group-pending {
+      opacity: 0;
+      transform: translate3d(0, 18px, 0)
+    }
+
+    #herramientas .tool-group-visible {
+      animation: tool-group-enter .48s cubic-bezier(.2, .65, .3, 1) both
+    }
+
+    #sobre-mi .about-text-pending {
+      opacity: 0;
+      transform: translate3d(-24px, 14px, 0)
+    }
+
+    #sobre-mi .about-text-visible {
+      animation: about-text-enter 1.2s cubic-bezier(.2, .65, .3, 1) both
+    }
+
+    #sobre-mi .study-tag-pending {
+      opacity: 0;
+      transform: translate3d(0, 18px, 0)
+    }
+
+    #sobre-mi .study-tag-visible {
+      animation: tool-group-enter .48s cubic-bezier(.2, .65, .3, 1) both
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #herramientas .tools-copy-pending,
+      #herramientas .tool-group-pending,
+      #sobre-mi .about-text-pending,
+      #sobre-mi .study-tag-pending {
+        opacity: 1;
+        transform: none
+      }
+
+      #herramientas .tools-copy-visible,
+      #herramientas .tool-group-visible,
+      #sobre-mi .about-text-visible,
+      #sobre-mi .study-tag-visible {
+        animation: none
+      }
     }
 
     .contact-section {
@@ -792,26 +1449,54 @@
       align-items: end
     }
 
+    .contact-inner::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      top: 50%;
+      left: 58%;
+      width: min(64vw, 820px);
+      aspect-ratio: 4 / 3;
+      transform: translate(-50%, -50%);
+      background: url("assets/plano-arqueologico-terracota.png") center / contain no-repeat;
+      opacity: .13;
+      pointer-events: none;
+    }
+
+    .contact-inner > * {
+      position: relative;
+      z-index: 1;
+    }
+
     .contact-section .eyebrow {
       color: #EAC19F
     }
 
     .contact-section .section-title {
-      margin-bottom: 20px
+      margin-bottom: 20px;
+      font-size: clamp(2.1rem, 4vw, 3.7rem)
+    }
+
+    .contact-section .section-title em {
+      color: #EAC19F
     }
 
     .contact-copy {
-      max-width: 640px;
+      max-width: 500px;
       color: #F4F3EECC;
       font-size: 1rem;
       line-height: 1.8;
-      margin-bottom: 0
+      margin-bottom: 0;
+      text-align: justify
     }
 
     .contact-aside {
       background: #FFFFFF12;
       border: 1px solid #FFFFFF5A;
-      padding: 25px
+      width: fit-content;
+      max-width: 100%;
+      justify-self: end;
+      padding: 28px
     }
 
     .contact-aside .aside-label {
@@ -828,6 +1513,180 @@
       font-size: .87rem;
       margin-bottom: 0;
       line-height: 1.75
+    }
+
+    .contact-social-links {
+      display: grid;
+      justify-items: start;
+      gap: 14px;
+    }
+
+    .contact-social-link {
+      display: grid;
+      grid-template-columns: 46px max-content;
+      align-items: center;
+      column-gap: 14px;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-social-link:hover .contact-social-label {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .contact-social-link:focus-visible {
+      outline: 2px solid #ECC7A5;
+      outline-offset: 4px;
+    }
+
+    .contact-social-icon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      overflow: hidden;
+    }
+
+    .contact-social-icon img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .contact-email-trigger .contact-social-icon img {
+      transform: scale(.8);
+    }
+
+    .contact-email-trigger {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .contact-email-form {
+      display: grid;
+      gap: 9px;
+      margin-top: 0;
+    }
+
+    .contact-email-form label {
+      color: #F4F3EE;
+      font-size: .78rem;
+      font-weight: 600;
+    }
+
+    .contact-email-form input,
+    .contact-email-form textarea {
+      box-sizing: border-box;
+      width: 100%;
+      border: 1px solid #FFFFFF40;
+      border-radius: 16px;
+      padding: 10px 13px;
+      background: #171B18;
+      color: #fff;
+      font: inherit;
+      font-size: .86rem;
+    }
+
+    .contact-email-form input[readonly] {
+      color: #C8CFCA;
+      cursor: default;
+    }
+
+    .contact-email-form input:focus-visible,
+    .contact-email-form textarea:focus-visible {
+      outline: 2px solid #ECC7A5;
+      outline-offset: 2px;
+    }
+
+    .contact-email-form textarea {
+      min-height: 120px;
+      resize: vertical;
+      border-radius: 12px;
+    }
+
+    .contact-email-form button {
+      justify-self: start;
+      margin-top: 3px;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: var(--terracotta);
+      color: #fff;
+      font: inherit;
+      font-size: .84rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .contact-email-form button:hover {
+      filter: brightness(1.08);
+    }
+
+    .contact-email-dialog {
+      width: min(560px, calc(100% - 32px));
+      max-width: min(560px, calc(100% - 32px));
+      max-height: calc(100% - 32px);
+      overflow-y: auto;
+      border: 1px solid #FFFFFF40;
+      border-radius: 18px;
+      padding: 0;
+      background: #252C28;
+      color: #fff;
+      box-shadow: 0 25px 90px #0008;
+    }
+
+    .contact-email-dialog::backdrop {
+      background: #101511D9;
+      backdrop-filter: blur(3px);
+    }
+
+    .contact-email-dialog-inner {
+      padding: clamp(20px, 5vw, 30px);
+    }
+
+    .contact-email-dialog-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .contact-email-dialog-header h2 {
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(1.45rem, 4vw, 1.9rem);
+      font-weight: 500;
+    }
+
+    .contact-email-close {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      border: 1px solid #FFFFFF55;
+      border-radius: 50%;
+      background: transparent;
+      color: #fff;
+      font: inherit;
+      font-size: 1.45rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .contact-email-close:hover {
+      background: #FFFFFF18;
     }
 
     .footer {
@@ -978,9 +1837,18 @@
 
       .hero-grid,
       .about-layout,
-      .tools-layout,
       .contact-inner {
         grid-template-columns: 1fr
+      }
+
+      .tools-bottom {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px
+      }
+
+      .tools-gallery {
+        justify-self: center;
+        width: min(100%, 460px)
       }
 
       .about-text {
@@ -1017,8 +1885,13 @@
         padding-block: 76px
       }
 
+      .contact-inner::before {
+        left: 44%;
+        width: min(148vw, 780px);
+      }
+
       .contact-aside {
-        max-width: 470px
+        max-width: 100%
       }
     }
 
@@ -1027,6 +1900,18 @@
       .project-grid,
       .study-list {
         grid-template-columns: 1fr
+      }
+
+      #proyectos.showing-featured .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #proyectos.showing-featured .featured-project-copy {
+        grid-column: 1;
+      }
+
+      #proyectos.showing-featured .project-civil3d-03[data-destacado="true"] {
+        grid-column: 1;
       }
 
       .hero-figure {
@@ -1086,8 +1971,44 @@
     /* AJUSTE EXCLUSIVO DE PROYECTOS */
 
     #proyectos {
-      padding-top: 15px;
+      padding-top: 0;
       scroll-margin-top: 100px;
+    }
+
+    @media (min-width: 761px) and (max-height: 760px) {
+      #proyectos {
+        scroll-margin-top: 94px;
+      }
+
+      #proyectos .section-head {
+        margin-bottom: 24px;
+      }
+
+      #proyectos .section-title {
+        margin-top: 8px;
+      }
+
+      #proyectos .filters {
+        margin-bottom: 16px;
+      }
+
+      #proyectos.showing-featured .project-grid {
+        padding: clamp(16px, 1.7vw, 24px);
+      }
+
+      #proyectos.showing-featured .featured-project-description {
+        margin-top: 12px;
+        font-size: .82rem;
+        line-height: 1.5;
+      }
+    }
+
+    #sobre-mi {
+      scroll-margin-top: 0;
+    }
+
+    #herramientas {
+      scroll-margin-top: calc(115px - clamp(76px, 9vw, 122px));
     }
 
     /* TEXTO JUSTIFICADO DE PROYECTOS */
@@ -1099,6 +2020,27 @@
     }
 
     /* CITA JOHN RUSKIN - PROYECTOS */
+    @keyframes project-quote-enter {
+      from {
+        opacity: 0;
+        transform: translate3d(36px, 0, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    #proyectos .project-quote.project-quote-pending {
+      opacity: 0;
+      transform: translate3d(36px, 0, 0);
+    }
+
+    #proyectos .project-quote.project-quote-visible {
+      animation: project-quote-enter 1.7s cubic-bezier(.2, .65, .3, 1) both;
+    }
+
     #proyectos .project-quote p {
       margin: 0 0 18px;
       font-family: Georgia, serif;
@@ -1109,7 +2051,7 @@
       color: var(--ink);
     }
 
-    #proyectos .project-quote p span {
+    #proyectos .project-quote p .project-quote-emphasis {
       color: var(--terracotta-dark);
     }
 
@@ -1137,6 +2079,19 @@
       margin-top: 15px;
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      #proyectos .project-quote.project-quote-pending {
+        opacity: 1;
+        transform: none;
+      }
+
+      #proyectos .project-quote.project-quote-visible {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+
     /* FICHA AMPLIADA DEL ZUN DE FU HAO */
 
     /* Ocultar los elementos de la ficha antigua */
@@ -1148,6 +2103,56 @@
     /* Contenedor de la ficha */
     #modal-extra {
       width: 100%;
+    }
+
+    .ficha-sexi {
+      width: 100%;
+      background: #FFFCF7;
+    }
+
+    .ficha-sexi-portada {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1414 / 1000;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .ficha-sexi-contenido {
+      max-width: 880px;
+      margin-inline: auto;
+      padding: clamp(28px, 5vw, 52px);
+    }
+
+    .ficha-sexi-etiqueta {
+      margin-bottom: 12px;
+      color: var(--terracotta-dark);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .ficha-sexi-titulo {
+      margin: 0 0 24px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(1.7rem, 4vw, 2.45rem);
+      line-height: 1.2;
+    }
+
+    .ficha-sexi-contenido p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: .94rem;
+      line-height: 1.85;
+    }
+
+    .ficha-sexi-contenido p:last-child {
+      margin-bottom: 0;
+    }
+
+    .ficha-sexi-contenido strong {
+      color: var(--ink);
     }
 
     .ficha-zun {
@@ -1629,6 +2634,91 @@
       margin: 0 0 28px;
     }
 
+    .ficha-haltern,
+    .ficha-dressel {
+      width: 100%;
+      background: var(--surface);
+    }
+
+    .ficha-haltern-visor,
+    .ficha-dressel-visor {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #ABA8A7;
+    }
+
+    .ficha-haltern-visor iframe,
+    .ficha-dressel-visor iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .ficha-haltern-credit,
+    .ficha-dressel-credit {
+      margin: 0;
+      padding: 9px 18px;
+      text-align: right;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .ficha-haltern-credit a,
+    .ficha-dressel-credit a {
+      color: var(--terracotta-dark);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .ficha-haltern-contenido,
+    .ficha-dressel-contenido {
+      padding: 35px 45px 50px;
+    }
+
+    .ficha-haltern-contenido h2,
+    .ficha-dressel-contenido h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: normal;
+      line-height: 1.2;
+      margin: 0 0 18px;
+      color: var(--ink);
+    }
+
+    .ficha-haltern-contenido>p,
+    .haltern-contexto p,
+    .ficha-dressel-contenido>p,
+    .dressel-contexto p {
+      text-align: justify;
+      hyphens: auto;
+      line-height: 1.8;
+      color: var(--muted);
+      margin: 0 0 20px;
+    }
+
+    .ficha-haltern h3,
+    .ficha-dressel h3 {
+      font-family: Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: normal;
+      color: var(--terracotta-dark);
+      margin: 40px 0 18px;
+    }
+
+    .haltern-contexto>h3,
+    .dressel-contexto>h3 {
+      margin-top: 0;
+    }
+
+    @media (max-width: 760px) {
+      .ficha-haltern-contenido,
+      .ficha-dressel-contenido {
+        padding: 25px 20px 35px;
+      }
+    }
+
     .ficha-tejado h3 {
       font-family: Georgia, serif;
       font-size: 1.6rem;
@@ -2009,6 +3099,14 @@
       background: #E3E0DA;
     }
 
+    .aljibe-recap-etapa img {
+      max-height: none;
+    }
+
+    .aljibe-civil3d-etapa img {
+      max-height: none;
+    }
+
     .ficha-fuente figcaption,
     .ficha-aljibe figcaption {
       font-size: 0.8rem;
@@ -2237,12 +3335,25 @@
 
     /* Del trazo a la materia */
     .trace-section {
-      padding-block: clamp(76px, 8.5vw, 118px) clamp(82px, 9vw, 124px);
+      min-height: 320vh;
+      height: 320vh;
+      padding-block: 0;
       background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .trace-track {
+      position: relative;
+      flex: 1 1 0;
+      min-height: 0;
     }
 
     .trace-grid {
+      position: sticky;
+      top: 94px;
       display: grid;
+      height: calc(100vh - 94px);
       grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);
       align-items: center;
       gap: clamp(38px, 6vw, 92px);
@@ -2262,11 +3373,13 @@
     .trace-watercolor {
       position: absolute;
       z-index: -1;
+      opacity: .72;
       inset: -5% -7% -3% -8%;
       width: 115%;
       height: 108%;
       overflow: visible;
       pointer-events: none;
+      transform-origin: center;
     }
 
     .trace-sketch,
@@ -2288,16 +3401,18 @@
 
     .trace-render {
       z-index: 2;
-      transform: translate(1.6%, -.5%) scale(.89);
+      left: 28%;
+      transform: translateY(var(--trace-reveal-y, 0px)) translateY(-.5%) scale(.89);
       transform-origin: center;
       filter: drop-shadow(0 22px 19px #49312624);
     }
 
     .trace-caption {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin: 6px 2% 0 3%;
+      position: relative;
+      top: -55px;
+      display: block;
+      height: 16px;
+      margin: -48px 0 0;
       color: var(--muted);
       font-size: .62rem;
       font-weight: 600;
@@ -2307,10 +3422,36 @@
     }
 
     .trace-step {
+      position: absolute;
+      top: 0;
       display: inline-flex;
-      align-items: center;
+      align-items: baseline;
       gap: 8px;
       white-space: nowrap;
+      transform: translateX(-50%);
+    }
+
+    .trace-step:first-child {
+      left: 29%;
+    }
+
+    .trace-step-source {
+      width: min(300px, 40%);
+      justify-content: center;
+      white-space: normal;
+      text-align: center;
+    }
+
+    .trace-step-citation {
+      flex: 1;
+      min-width: 0;
+      letter-spacing: 0;
+      text-transform: none;
+      text-align: left;
+    }
+
+    .trace-step:last-child {
+      left: 68%;
     }
 
     .trace-step-number {
@@ -2320,15 +3461,20 @@
     }
 
     .trace-step-arrow {
-      flex: 1;
-      min-width: 20px;
+      position: absolute;
+      top: 0;
+      left: 51%;
+      flex: 0 0 auto;
+      min-width: 0;
       color: var(--terracotta);
       text-align: center;
+      transform: translateX(-50%);
     }
 
     .trace-copy {
       max-width: 450px;
       padding-block: 20px;
+      transform: translateY(0);
     }
 
     .trace-title {
@@ -2356,6 +3502,21 @@
       hyphens: auto;
     }
 
+    .trace-signature {
+      max-width: 405px;
+      margin: clamp(24px, 5vh, 52px) 0 0;
+      font-family: Georgia, serif;
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      font-style: italic;
+      line-height: 1.4;
+      text-align: left;
+      color: var(--ink);
+    }
+
+    .trace-signature .trace-highlight {
+      color: var(--terracotta-dark);
+    }
+
     @media (max-width: 900px) {
       .trace-grid {
         grid-template-columns: minmax(0, 1.08fr) minmax(280px, .92fr);
@@ -2366,6 +3527,10 @@
         height: clamp(430px, 52vw, 540px);
       }
 
+      .trace-caption {
+        top: -44px;
+      }
+
       .trace-title {
         font-size: clamp(3rem, 5.6vw, 4.25rem);
       }
@@ -2373,21 +3538,58 @@
 
     @media (max-width: 760px) {
       .trace-section {
-        padding-block: 68px 88px;
+        min-height: 260vh;
+        height: 260vh;
+        padding-block: 0;
       }
 
       .trace-grid {
+        top: 81px;
+        height: calc(100vh - 81px);
+        height: calc(100svh - 81px);
         grid-template-columns: 1fr;
-        gap: 24px;
+        grid-template-rows: minmax(0, 1.02fr) minmax(0, .98fr);
+        gap: 12px;
+        align-items: stretch;
       }
 
       .trace-art {
         width: min(100%, 620px);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
         margin-inline: auto;
       }
 
       .trace-image-stage {
-        height: clamp(420px, 68vw, 550px);
+        flex: 1 1 auto;
+        min-height: 0;
+        height: auto;
+      }
+
+      .trace-caption {
+        top: -18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        height: auto;
+        margin-top: -18px;
+      }
+
+      .trace-step {
+        position: static;
+        transform: none;
+      }
+
+      .trace-step-source {
+        max-width: 44%;
+      }
+
+      .trace-step-arrow {
+        position: static;
+        transform: none;
       }
 
       .trace-copy {
@@ -2395,24 +3597,52 @@
         max-width: none;
         margin-inline: auto;
         padding-block: 0;
+        transform: translateY(-8px);
       }
+
+      .trace-title {
+        margin: 9px 0 14px;
+        font-size: clamp(2.2rem, 8.8vw, 3rem);
+      }
+
+      .trace-description {
+        font-size: .94rem;
+        line-height: 1.5;
+      }
+
+      .trace-signature {
+        max-width: 620px;
+        margin-top: 16px;
+        font-size: clamp(1.05rem, 4.2vw, 1.25rem);
+        line-height: 1.3;
+      }
+
     }
 
     @media (max-width: 540px) {
       .trace-section {
-        padding-block: 54px 76px;
+        min-height: 250vh;
+        height: 250vh;
+        padding-block: 0;
       }
 
       .trace-image-stage {
-        height: clamp(370px, 96vw, 440px);
+        height: auto;
       }
 
       .trace-sketch,
       .trace-render {
-        left: 0;
         top: 4%;
         width: 62%;
         height: 86%;
+      }
+
+      .trace-sketch {
+        left: 0;
+      }
+
+      .trace-render {
+        left: 28%;
       }
 
       .trace-caption {
@@ -2431,9 +3661,20 @@
       }
 
       .trace-title {
-        margin-bottom: 22px;
-        font-size: clamp(2.8rem, 12.6vw, 3.65rem);
+        margin: 8px 0 10px;
+        font-size: clamp(1.9rem, 8.2vw, 2.4rem);
       }
+
+      .trace-description {
+        font-size: .88rem;
+        line-height: 1.42;
+      }
+
+      .trace-signature {
+        margin-top: 12px;
+        font-size: 1rem;
+      }
+
     }
   </style>
 </head>
@@ -3695,7 +4936,8 @@
     </section>
     <!-- Del trazo a la materia: transición visual del dibujo a la reconstrucción digital. -->
     <section class="trace-section" id="del-trazo" aria-labelledby="trace-title">
-      <div class="container trace-grid">
+      <div class="trace-track">
+        <div class="container trace-grid">
         <figure class="trace-art">
           <div class="trace-image-stage">
             <svg class="trace-watercolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 700" aria-hidden="true" focusable="false">
@@ -3748,7 +4990,10 @@
               alt="Reconstrucción digital del ánfora realizada en Blender" loading="lazy">
           </div>
           <figcaption class="trace-caption">
-            <span class="trace-step"><span class="trace-step-number">01</span>Dibujo arqueológico</span>
+            <span class="trace-step trace-step-source">
+              <span class="trace-step-number">01</span>
+              <span class="trace-step-citation">Berni (2008, p. 63, fig. 10), vía Amphorae ex Hispania.</span>
+            </span>
             <span class="trace-step-arrow" aria-hidden="true">→</span>
             <span class="trace-step"><span class="trace-step-number">02</span>Reconstrucción 3D</span>
           </figcaption>
@@ -3757,6 +5002,7 @@
           <div class="eyebrow">Registro arqueológico · Reconstrucción digital</div>
           <h2 class="trace-title" id="trace-title">Del trazo<em>a la materia.</em></h2>
           <p class="trace-description">Del registro arqueológico a la reconstrucción digital. Una nueva manera de estudiar, representar y comprender el patrimonio.</p>
+          <p class="trace-signature">«Entre la <span class="trace-highlight">precisión</span> de la medida y la <span class="trace-highlight">interpretación</span> de la historia».</p>
         </div>
       </div>
     </section>
@@ -3776,10 +5022,7 @@
           </div>
           <blockquote class="project-quote">
 
-            <p>
-              «Cuando construimos, pensemos que construimos
-              <span>para siempre</span>».
-            </p>
+            <p>«Cuando construimos, pensemos que construimos <span class="project-quote-emphasis">para siempre</span>».</p>
 
             <cite>
               John Ruskin - Las siete lámparas de la arquitectura, 1849
@@ -3796,6 +5039,13 @@
           <button type="button" class="filter" data-filter="tfg" aria-pressed="false">TFG</button>
         </div>
         <div class="project-grid">
+          <div class="featured-project-copy">
+            <h3 class="featured-project-title">Aljibe de San Nicolás</h3>
+            <p class="featured-project-description">Este proyecto recoge el proceso de <strong>levantamiento fotogramétrico del Aljibe de San Nicolás</strong>, situado en el Albaicín, Granada. Comenzando con la toma de fotografías y mediciones en el terreno, procesadas en <strong>Agisoft Metashape</strong> para obtener una nube de puntos que se transfirió a <strong>Autodesk ReCap,</strong> para su preparación y compatibilidad con <strong>Civil 3D</strong>, donde se llevó a cabo la reconstrucción geométrica mediante un modelo sólido tridimensional. El proyecto se completa con una <strong>memoria técnica</strong> que documenta las distintas fases del trabajo.</p>
+            <button class="btn btn-primary featured-project-cta" type="button" data-open-featured-aljibe>
+              Explorar proyecto <span aria-hidden="true">↗</span>
+            </button>
+          </div>
           <article class="project" data-category="modelado" data-ficha="ficha-tejado"
             data-details="Este proyecto consiste en la reconstrucción tridimensional de una estructura de cubierta de época romana, realizada como parte de un curso de modelado 3D de Kore Formación. El trabajo supuso una primera aproximación al entorno de Blender y a sus principales herramientas de modelado, permitiendo familiarizarme con la creación de geometrías, la organización de elementos constructivos y la aplicación de materiales y texturas.">
             <div class="project-art"><img src="assets/estructura-cubierta.png"
@@ -3810,7 +5060,7 @@
             </div>
           </article>
           <!-- PROYECTO 02 -->
-          <article class="project" data-category="modelado" data-destacado="true" data-ficha="ficha-zun"
+          <article class="project" data-category="modelado" data-ficha="ficha-zun"
             data-details="Modelado 3D de un zun de bronce de Fu Hao (Xiāo zūn), centrado en la reconstrucción formal y la representación digital de una pieza ritual de la China antigua. El proyecto explora la geometría, los volúmenes y los detalles ornamentales del objeto mediante herramientas de modelado tridimensional en Blender.">
 
 
@@ -3945,7 +5195,7 @@
               </button>
             </div>
           </article>
-          <article class="project photogrammetry" data-category="fotogrametria" data-destacado="true" data-ficha="ficha-aljibe"
+          <article class="project photogrammetry" data-category="fotogrametria" data-ficha="ficha-aljibe"
             data-details="El presente modelo fotogramétrico del Aljibe de San Nicolás, situado en el barrio del Albaicín de Granada, se ha realizado en el marco de las prácticas de la asignatura de Representaciones de Construcción, perteneciente al primer curso del Ciclo Formativo de Grado Superior en Proyectos de Obra Civil, durante el curso académico 2026-2027, en el Colegio Ave María-San Cristóbal. La práctica ha consistido en la documentación fotográfica del aljibe y su posterior reconstrucción tridimensional mediante técnicas de fotogrametría digital. Para ello, se han desarrollado distintas fases de procesamiento, entre las que destacan la orientación de fotografías, la asignación de coordenadas, el escalado y la generación del modelo 3D. El objetivo de esta actividad ha sido aplicar las herramientas de representación tridimensional al levantamiento y documentación de un elemento del patrimonio arquitectónico granadino, explorando las posibilidades de la fotogrametría en el ámbito de la obra civil y la conservación del patrimonio.">
             <div class="project-art">
               <img src="assets/aljibe-granada.jpg" alt="Aljibe de San Nicolás en el Albaicín de Granada" loading="lazy">
@@ -4002,51 +5252,288 @@
             </div>
           </article>
 
-          <article class="project placeholder civil" data-category="civil"
-            data-details="Espacio reservado para añadir la descripción, las imágenes y el proceso de un proyecto de planimetría o CAD.">
+          <article class="project project-civil3d" data-category="civil"
+            data-details="Dibujo técnico isométrico de una estructura en Civil 3D con animación SVG de trazado progresivo. La línea original se revela sobre una base clara, manteniendo la geometría y las proporciones del dibujo.">
             <div class="project-art">
-              <span class="art-symbol" aria-hidden="true">⌁</span>
+              <button class="civil3d-cover" type="button" data-civil3d-cover aria-label="Trazar las líneas del dibujo" aria-pressed="false" style="--last-order: 36; --finish-delay: 2.25s">
+                <img class="civil3d-base" src="assets/civil3d-lineas-estructura.png" alt="Dibujo técnico isométrico de una estructura modelada en Civil 3D" loading="lazy">
+                <svg class="civil3d-overlay" viewBox="0 0 1326 1187" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+                  <defs>
+                    <mask id="civil3d-project-01-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1326" height="1187" style="mask-type:alpha">
+                      <g>
+                        <path class="civil3d-trace" d="M145 232 L665 60" pathLength="1" style="--order:0" />
+                        <path class="civil3d-trace" d="M665 60 L838 118" pathLength="1" style="--order:1" />
+                        <path class="civil3d-trace" d="M838 118 L319 288" pathLength="1" style="--order:2" />
+                        <path class="civil3d-trace" d="M319 288 L145 232" pathLength="1" style="--order:3" />
+                        <path class="civil3d-trace" d="M145 232 L145 927" pathLength="1" style="--order:4" />
+                        <path class="civil3d-trace" d="M319 288 L319 751" pathLength="1" style="--order:5" />
+                        <path class="civil3d-trace" d="M838 118 L838 579" pathLength="1" style="--order:6" />
+                        <path class="civil3d-trace" d="M145 927 L665 1094" pathLength="1" style="--order:7" />
+                        <path class="civil3d-trace" d="M665 1094 L1009 983" pathLength="1" style="--order:8" />
+                        <path class="civil3d-trace" d="M665 863 L665 1094" pathLength="1" style="--order:9" />
+                        <path class="civil3d-trace" d="M319 751 L665 863" pathLength="1" style="--order:10" />
+                        <path class="civil3d-trace" d="M665 863 L1009 748" pathLength="1" style="--order:11" />
+                        <path class="civil3d-trace" d="M1009 638 L1009 983" pathLength="1" style="--order:12" />
+                        <path class="civil3d-trace" d="M838 579 L1009 638" pathLength="1" style="--order:13" />
+                        <path class="civil3d-trace" d="M838 693 L1009 748" pathLength="1" style="--order:14" />
+                        <path class="civil3d-trace" d="M838 693 L1009 638" pathLength="1" style="--order:15" />
+                        <path class="civil3d-trace" d="M838 693 L838 715" pathLength="1" style="--order:16" />
+                        <path class="civil3d-trace" d="M665 638 L838 579" pathLength="1" style="--order:17" />
+                        <path class="civil3d-trace" d="M492 579 L665 638" pathLength="1" style="--order:18" />
+                        <path class="civil3d-trace" d="M665 405 L665 638" pathLength="1" style="--order:19" />
+                        <path class="civil3d-trace" d="M492 463 L665 405" pathLength="1" style="--order:20" />
+                        <path class="civil3d-trace" d="M492 463 L492 692" pathLength="1" style="--order:21" />
+                        <path class="civil3d-trace" d="M492 692 L319 751" pathLength="1" style="--order:22" />
+                        <path class="civil3d-trace" d="M319 404 L492 346" pathLength="1" style="--order:23" />
+                        <path class="civil3d-trace" d="M492 346 L665 405" pathLength="1" style="--order:24" />
+                        <path class="civil3d-trace" d="M319 404 L492 463" pathLength="1" style="--order:25" />
+                        <path class="civil3d-trace" d="M492 346 L492 463" pathLength="1" style="--order:26" />
+                        <path class="civil3d-trace" d="M319 636 L492 579" pathLength="1" style="--order:27" />
+                        <path class="civil3d-trace" d="M319 636 L492 692" pathLength="1" style="--order:28" />
+                        <path class="civil3d-trace" d="M665 60 L665 405" pathLength="1" style="--order:29" />
+                        <path class="civil3d-trace" d="M665 638 L665 755" pathLength="1" style="--order:30" />
+                        <path class="civil3d-trace" d="M145 927 L665 755" pathLength="1" style="--order:31" />
+                        <path class="civil3d-trace" d="M319 810 L665 755" pathLength="1" style="--order:32" />
+                        <path class="civil3d-trace" d="M665 755 L1009 867" pathLength="1" style="--order:33" />
+                        <path class="civil3d-trace" d="M838 693 L838 927" pathLength="1" style="--order:34" />
+                        <path class="civil3d-trace" d="M838 927 L1009 867" pathLength="1" style="--order:35" />
+                        <path class="civil3d-trace" d="M838 927 L1009 983" pathLength="1" style="--order:36" />
+                      </g>
+                      <rect class="civil3d-complete" x="0" y="0" width="1326" height="1187" fill="white" />
+                    </mask>
+                  </defs>
+                  <image x="0" y="0" width="1326" height="1187" href="assets/civil3d-lineas-estructura.png" mask="url(#civil3d-project-01-mask)" />
+                </svg>
+              </button>
               <span class="project-number">01</span>
-              <span class="placeholder-tag">Espacio reservado</span>
             </div>
             <div class="project-info">
-              <div class="project-meta">Planimetría/CAD · Pendiente</div>
-              <h3 class="project-title">Proyecto 01 · Título pendiente</h3>
-              <p class="project-desc">Espacio reservado para un proyecto de planimetría o CAD.</p>
+              <div class="project-meta">Planimetría/CAD · Civil 3D</div>
+              <h3 class="project-title">Estructura isométrica en Civil 3D</h3>
+              <p class="project-desc">Dibujo técnico con trazado progresivo de las líneas de la estructura.</p>
               <button class="project-link" data-open-project type="button">
                 Ver proyecto ↗
               </button>
             </div>
           </article>
 
-          <article class="project placeholder civil" data-category="civil"
-            data-details="Espacio reservado para añadir la descripción, las imágenes y el proceso de un proyecto de planimetría o CAD.">
+          <article class="project project-civil3d-02" data-category="civil"
+            data-details="Dibujo técnico de geometría escalonada. La ilustración conserva las líneas originales y las revela progresivamente con una máscara SVG.">
             <div class="project-art">
-              <span class="art-symbol" aria-hidden="true">⌁</span>
+              <button class="civil3d-cover" type="button" data-civil3d-cover aria-label="Trazar las líneas del dibujo" aria-pressed="false" style="--last-order: 30; --finish-delay: 1.96s">
+                <img class="civil3d-base" src="assets/planimetria-cad-proyecto-02-lineas.png" alt="Dibujo técnico de una geometría escalonada en perspectiva" loading="lazy">
+                <svg class="civil3d-overlay" viewBox="0 0 1337 1176" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+                  <defs>
+                    <mask id="civil3d-project-02-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1337" height="1176" style="mask-type:alpha">
+                      <g>
+                        <path class="civil3d-trace" d="M538.27 63.29 L753.79 120.46" pathLength="1" style="--order:0" />
+                        <path class="civil3d-trace" d="M753.79 120.46 L608.75 205.19" pathLength="1" style="--order:1" />
+                        <path class="civil3d-trace" d="M608.75 205.19 L393.24 148.02" pathLength="1" style="--order:2" />
+                        <path class="civil3d-trace" d="M393.24 148.02 L538.27 63.29" pathLength="1" style="--order:3" />
+                        <path class="civil3d-trace" d="M393.24 148.02 L393.24 388.94" pathLength="1" style="--order:4" />
+                        <path class="civil3d-trace" d="M608.75 205.19 L822.22 499.19" pathLength="1" style="--order:5" />
+                        <path class="civil3d-trace" d="M753.79 120.46 L965.21 415.48" pathLength="1" style="--order:6" />
+                        <path class="civil3d-trace" d="M965.21 415.48 L822.22 499.19" pathLength="1" style="--order:7" />
+                        <path class="civil3d-trace" d="M393.24 388.94 L822.22 499.19" pathLength="1" style="--order:8" />
+                        <path class="civil3d-trace" d="M393.24 388.94 L251.26 708.46" pathLength="1" style="--order:9" />
+                        <path class="civil3d-trace" d="M822.22 499.19 L1036.71 555.33" pathLength="1" style="--order:10" />
+                        <path class="civil3d-trace" d="M965.21 415.48 L1180.73 471.62" pathLength="1" style="--order:11" />
+                        <path class="civil3d-trace" d="M1180.73 471.62 L1036.71 555.33" pathLength="1" style="--order:12" />
+                        <path class="civil3d-trace" d="M1036.71 555.33 L893.72 875.88" pathLength="1" style="--order:13" />
+                        <path class="civil3d-trace" d="M251.26 708.46 L538.27 782.98" pathLength="1" style="--order:14" />
+                        <path class="civil3d-trace" d="M251.26 708.46 L108.27 792.17" pathLength="1" style="--order:15" />
+                        <path class="civil3d-trace" d="M108.27 792.17 L393.24 867.71" pathLength="1" style="--order:16" />
+                        <path class="civil3d-trace" d="M393.24 867.71 L538.27 782.98" pathLength="1" style="--order:17" />
+                        <path class="civil3d-trace" d="M108.27 792.17 L108.27 1030.02" pathLength="1" style="--order:18" />
+                        <path class="civil3d-trace" d="M108.27 1030.02 L536.23 1141.29" pathLength="1" style="--order:19" />
+                        <path class="civil3d-trace" d="M393.24 867.71 L536.23 1141.29" pathLength="1" style="--order:20" />
+                        <path class="civil3d-trace" d="M538.27 782.98 L680.25 1056.56" pathLength="1" style="--order:21" />
+                        <path class="civil3d-trace" d="M680.25 1056.56 L536.23 1141.29" pathLength="1" style="--order:22" />
+                        <path class="civil3d-trace" d="M680.25 1056.56 L893.72 1114.75" pathLength="1" style="--order:23" />
+                        <path class="civil3d-trace" d="M893.72 875.88 L893.72 1114.75" pathLength="1" style="--order:24" />
+                        <path class="civil3d-trace" d="M893.72 1114.75 L1180.73 946.31" pathLength="1" style="--order:25" />
+                        <path class="civil3d-trace" d="M1180.73 471.62 L1180.73 946.31" pathLength="1" style="--order:26" />
+                        <path class="civil3d-trace" d="M538.27 63.29 L538.27 782.98" pathLength="1" style="--order:27" />
+                        <path class="civil3d-trace" d="M108.27 1030.02 L393.24 867.71" pathLength="1" style="--order:28" />
+                        <path class="civil3d-trace" d="M538.27 782.98 L893.72 875.88" pathLength="1" style="--order:29" />
+                        <path class="civil3d-trace" d="M893.72 875.88 L1180.73 946.31" pathLength="1" style="--order:30" />
+                      </g>
+                      <rect class="civil3d-complete" x="0" y="0" width="1337" height="1176" fill="white" />
+                    </mask>
+                  </defs>
+                  <image x="0" y="0" width="1337" height="1176" href="assets/planimetria-cad-proyecto-02-lineas.png" mask="url(#civil3d-project-02-mask)" />
+                </svg>
+              </button>
               <span class="project-number">02</span>
-              <span class="placeholder-tag">Espacio reservado</span>
             </div>
             <div class="project-info">
-              <div class="project-meta">Planimetría/CAD · Pendiente</div>
-              <h3 class="project-title">Proyecto 02 · Título pendiente</h3>
-              <p class="project-desc">Espacio reservado para un proyecto de planimetría o CAD.</p>
+              <div class="project-meta">Planimetría/CAD · Dibujo técnico</div>
+              <h3 class="project-title">Geometría técnica escalonada</h3>
+              <p class="project-desc">Dibujo técnico con trazado progresivo de las aristas de la figura.</p>
               <button class="project-link" data-open-project type="button">
                 Ver proyecto ↗
               </button>
             </div>
           </article>
 
-          <article class="project placeholder civil" data-category="civil"
-            data-details="Espacio reservado para añadir la descripción, las imágenes y el proceso de un proyecto de planimetría o CAD.">
+          <article class="project project-civil3d-03" data-category="civil" data-destacado="true"
+            data-details="Visualización interactiva de un dibujo arquitectónico: el trazado de las líneas da paso a la aparición de las superficies y del modelo completo.">
             <div class="project-art">
-              <span class="art-symbol" aria-hidden="true">⌁</span>
+              <button class="civil3d-cover civil3d-architecture-cover" type="button" data-civil3d-cover aria-label="Trazar las líneas del dibujo" aria-pressed="false">
+                <svg class="civil3d-architecture-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1137 628" aria-hidden="true">
+                <defs>
+                  <filter id="arch-softPaint" x="-7%" y="-7%" width="114%" height="114%" color-interpolation-filters="sRGB">
+                    <feGaussianBlur stdDeviation="1.2" />
+                  </filter>
+                  <!-- Los brochazos de la fachada no pintan la cubierta trasera -->
+                  <clipPath id="arch-frontRegion"><path d="M 0 0 H 485 V 325 L 570 400 L 640 628 H 0 Z"/></clipPath>
+                  <clipPath id="arch-rearRegion"><path d="M 485 0 H 1137 V 628 H 640 L 570 400 L 485 325 Z"/></clipPath>
+                  <mask id="arch-brushMaskFront" maskUnits="userSpaceOnUse" x="0" y="0" width="1137" height="628">
+                    <rect width="1137" height="628" fill="#000"/>
+                    <g class="paint-brush" filter="url(#arch-softPaint)">
+                                <path d="M 248 79 C 323 59 361 78 431 68" pathLength="1" stroke-width="63" style="--delay:1.315s;--duration:0.5s;--op:1.00"/>
+                                <path d="M 266 106 Q 339 96 417 106" pathLength="1" stroke-width="32" style="--delay:1.415s;--duration:0.435s;--op:0.83"/>
+                                <path d="M 237 120 C 312 100 372 108 442 109" pathLength="1" stroke-width="63" style="--delay:1.425s;--duration:0.5s;--op:1.00"/>
+                                <path d="M 250 162 C 325 142 374 161 444 151" pathLength="1" stroke-width="63" style="--delay:1.535s;--duration:0.5s;--op:1.00"/>
+                                <path d="M 268 189 Q 347 179 430 189" pathLength="1" stroke-width="32" style="--delay:1.635s;--duration:0.435s;--op:0.83"/>
+                                <path d="M 228 205 C 303 185 393 193 463 194" pathLength="1" stroke-width="63" style="--delay:1.645s;--duration:0.5s;--op:1.00"/>
+                                <path d="M 190 246 C 265 226 398 245 468 235" pathLength="1" stroke-width="63" style="--delay:1.755s;--duration:0.5s;--op:1.00"/>
+                                <path d="M 208 273 Q 329 263 454 273" pathLength="1" stroke-width="32" style="--delay:1.855s;--duration:0.435s;--op:0.83"/>
+                                <path d="M 179 287 C 254 267 413 275 483 276" pathLength="1" stroke-width="63" style="--delay:1.865s;--duration:0.5s;--op:1.00"/>
+                                <path d="M 127 338 C 202 318 449 337 519 327" pathLength="1" stroke-width="80" style="--delay:1.975s;--duration:0.55s;--op:1.00"/>
+                                <path d="M 145 365 Q 323 355 505 365" pathLength="1" stroke-width="32" style="--delay:2.075s;--duration:0.435s;--op:0.83"/>
+                                <path d="M 108 389 C 183 369 462 377 532 378" pathLength="1" stroke-width="80" style="--delay:2.085s;--duration:0.55s;--op:1.00"/>
+                                <path d="M 89 437 C 164 417 472 436 542 426" pathLength="1" stroke-width="80" style="--delay:2.195s;--duration:0.55s;--op:1.00"/>
+                                <path d="M 107 464 Q 315 454 528 464" pathLength="1" stroke-width="32" style="--delay:2.295s;--duration:0.435s;--op:0.83"/>
+                                <path d="M 78 484 C 153 464 489 472 559 473" pathLength="1" stroke-width="80" style="--delay:2.305s;--duration:0.55s;--op:1.00"/>
+                                <path d="M 75 530 C 150 510 508 529 578 519" pathLength="1" stroke-width="80" style="--delay:2.415s;--duration:0.55s;--op:1.00"/>
+                                <path d="M 93 557 Q 326 547 564 557" pathLength="1" stroke-width="32" style="--delay:2.515s;--duration:0.435s;--op:0.83"/>
+                                <path d="M 108 577 C 183 557 524 565 594 566" pathLength="1" stroke-width="80" style="--delay:2.525s;--duration:0.55s;--op:1.00"/>
+                    </g>
+                  </mask>
+                  <mask id="arch-brushMaskBack" maskUnits="userSpaceOnUse" x="0" y="0" width="1137" height="628">
+                    <rect width="1137" height="628" fill="#000"/>
+                    <g class="paint-brush" filter="url(#arch-softPaint)">
+                                <path d="M 456 268 C 586 236 620 268 790 246" pathLength="1" stroke-width="75" style="--delay:1.74s;--duration:0.575s;--op:1.00"/>
+                                <path d="M 447 308 C 577 276 734 308 904 286" pathLength="1" stroke-width="75" style="--delay:1.865s;--duration:0.575s;--op:1.00"/>
+                                <path d="M 469 331 Q 675 320 879 331" pathLength="1" stroke-width="34" style="--delay:1.95s;--duration:0.5s;--op:0.86"/>
+                                <path d="M 460 354 C 590 322 826 354 996 332" pathLength="1" stroke-width="75" style="--delay:1.985s;--duration:0.575s;--op:1.00"/>
+                                <path d="M 464 402 C 594 370 890 402 1060 380" pathLength="1" stroke-width="75" style="--delay:2.105s;--duration:0.575s;--op:1.00"/>
+                                <path d="M 486 425 Q 762 414 1035 425" pathLength="1" stroke-width="34" style="--delay:2.19s;--duration:0.5s;--op:0.86"/>
+                                <path d="M 475 447 C 605 415 926 447 1096 425" pathLength="1" stroke-width="75" style="--delay:2.23s;--duration:0.575s;--op:1.00"/>
+                                <path d="M 499 489 C 629 457 947 489 1117 467" pathLength="1" stroke-width="75" style="--delay:2.355s;--duration:0.575s;--op:1.00"/>
+                                <path d="M 521 512 Q 808 501 1092 512" pathLength="1" stroke-width="34" style="--delay:2.44s;--duration:0.5s;--op:0.86"/>
+                                <path d="M 522 528 C 652 496 957 528 1127 506" pathLength="1" stroke-width="75" style="--delay:2.475s;--duration:0.575s;--op:1.00"/>
+                                <path d="M 551 564 C 681 532 957 564 1127 542" pathLength="1" stroke-width="75" style="--delay:2.6s;--duration:0.575s;--op:1.00"/>
+                                <path d="M 573 587 Q 839 576 1102 587" pathLength="1" stroke-width="34" style="--delay:2.685s;--duration:0.5s;--op:0.86"/>
+                                <path d="M 560 603 C 690 571 954 603 1124 581" pathLength="1" stroke-width="75" style="--delay:2.72s;--duration:0.575s;--op:1.00"/>
+                    </g>
+                  </mask>
+                </defs>
+                <!-- Aristas suaves siempre visibles antes del dibujo -->
+                <image class="ghost" width="1137" height="628" href="assets/planimetria-cad-arquitectura-lineas.png"/>
+                <!-- Solo el color original de la captura, sin fondo -->
+                <image class="paint" width="1137" height="628" href="assets/planimetria-cad-arquitectura-color.png" mask="url(#arch-brushMaskFront)" clip-path="url(#arch-frontRegion)"/>
+                <image class="paint" width="1137" height="628" href="assets/planimetria-cad-arquitectura-color.png" mask="url(#arch-brushMaskBack)" clip-path="url(#arch-rearRegion)"/>
+                <!-- Cierra las pequeñas zonas que los brochazos no hayan cubierto -->
+                <image class="paint-complete" width="1137" height="628" href="assets/planimetria-cad-arquitectura-color.png"/>
+                <!-- El dibujo negro SIEMPRE está por encima de todos los colores -->
+                <g class="animated-strokes">
+                        <path d="M 322.0,49.0 L 332.0,48.0 L 338.0,46.0 L 350.0,45.0 L 355.0,43.0 L 367.0,43.0 L 368.0,44.0 L 380.0,46.0 L 393.0,52.0 L 409.0,64.0 L 422.0,78.0 L 435.0,98.0 L 443.0,116.0" pathLength="1" style="--delay:0s;--duration:0.36s"/>
+                        <path d="M 309.0,52.0 L 294.0,56.0 L 289.0,60.0 L 281.0,64.0 L 271.0,74.0 L 262.0,87.0 L 255.0,102.0 L 255.0,104.0 L 258.0,106.0" pathLength="1" style="--delay:0.0175s;--duration:0.36s"/>
+                        <path d="M 322.0,53.0 L 330.0,54.0 L 339.0,57.0 L 344.0,60.0 L 346.0,60.0 L 358.0,68.0 L 375.0,85.0 L 378.0,90.0 L 382.0,94.0 L 394.0,116.0 L 397.0,125.0" pathLength="1" style="--delay:0.035s;--duration:0.36s"/>
+                        <path d="M 267.0,107.0 L 273.0,109.0 L 278.0,109.0 L 284.0,111.0 L 289.0,111.0 L 290.0,112.0 L 300.0,113.0 L 306.0,115.0 L 311.0,115.0 L 317.0,117.0 L 322.0,117.0 L 328.0,119.0 L 339.0,120.0 L 345.0,122.0 L 350.0,122.0 L 351.0,123.0 L 361.0,124.0 L 362.0,125.0 L 372.0,126.0 L 373.0,127.0 L 383.0,128.0 L 384.0,129.0 L 394.0,130.0 L 395.0,131.0" pathLength="1" style="--delay:0.0525s;--duration:0.36s"/>
+                        <path d="M 440.0,120.0 L 433.0,122.0 L 429.0,122.0 L 428.0,123.0 L 423.0,123.0 L 422.0,124.0 L 403.0,127.0" pathLength="1" style="--delay:0.07s;--duration:0.36s"/>
+                        <path d="M 435.0,125.0 L 406.0,130.0" pathLength="1" style="--delay:0.0875s;--duration:0.245s"/>
+                        <path d="M 270.0,118.0 L 276.0,120.0 L 287.0,121.0 L 293.0,123.0 L 304.0,124.0 L 310.0,126.0 L 321.0,127.0 L 327.0,129.0 L 332.0,129.0 L 338.0,131.0 L 349.0,132.0 L 355.0,134.0 L 360.0,134.0 L 361.0,135.0 L 366.0,135.0 L 372.0,137.0 L 377.0,137.0 L 378.0,138.0 L 383.0,138.0 L 384.0,139.0 L 397.0,141.0" pathLength="1" style="--delay:0.105s;--duration:0.36s"/>
+                        <path d="M 435.0,131.0 L 434.0,132.0 L 412.0,135.0 L 406.0,137.0" pathLength="1" style="--delay:0.1225s;--duration:0.245s"/>
+                        <path d="M 431.0,136.0 L 408.0,140.0" pathLength="1" style="--delay:0.14s;--duration:0.245s"/>
+                        <path d="M 268.0,133.0 L 268.0,187.0" pathLength="1" style="--delay:0.1575s;--duration:0.245s"/>
+                        <path d="M 340.0,155.0 L 346.0,158.0 L 354.0,166.0 L 357.0,171.0" pathLength="1" style="--delay:0.175s;--duration:0.245s"/>
+                        <path d="M 333.0,157.0 L 327.0,166.0 L 327.0,168.0" pathLength="1" style="--delay:0.1925s;--duration:0.245s"/>
+                        <path d="M 333.0,153.0 L 325.0,154.0 L 317.0,160.0 L 311.0,170.0 L 311.0,173.0 L 309.0,177.0 L 308.0,187.0" pathLength="1" style="--delay:0.21s;--duration:0.36s"/>
+                        <path d="M 435.0,140.0 L 435.0,201.0" pathLength="1" style="--delay:0.2275s;--duration:0.245s"/>
+                        <path d="M 330.0,172.0 L 344.0,172.0 L 354.0,175.0" pathLength="1" style="--delay:0.245s;--duration:0.245s"/>
+                        <path d="M 321.0,173.0 L 316.0,173.0 L 313.0,175.0 L 312.0,186.0" pathLength="1" style="--delay:0.2625s;--duration:0.245s"/>
+                        <path d="M 404.0,145.0 L 404.0,210.0 L 405.0,211.0 L 411.0,209.0 L 416.0,209.0 L 417.0,208.0 L 422.0,208.0 L 423.0,207.0 L 431.0,206.0" pathLength="1" style="--delay:0.28s;--duration:0.36s"/>
+                        <path d="M 360.0,178.0 L 363.0,186.0 L 364.0,197.0" pathLength="1" style="--delay:0.2975s;--duration:0.245s"/>
+                        <path d="M 263.0,192.0 L 253.0,200.0 L 239.0,215.0 L 225.0,236.0 L 220.0,247.0 L 218.0,249.0 L 214.0,249.0" pathLength="1" style="--delay:0.315s;--duration:0.36s"/>
+                        <path d="M 267.0,195.0 L 267.0,253.0 L 268.0,254.0 L 268.0,260.0" pathLength="1" style="--delay:0.3325s;--duration:0.245s"/>
+                        <path d="M 437.0,216.0 L 449.0,230.0 L 459.0,245.0" pathLength="1" style="--delay:0.35s;--duration:0.245s"/>
+                        <path d="M 309.0,205.0 L 309.0,265.0" pathLength="1" style="--delay:0.3675s;--duration:0.245s"/>
+                        <path d="M 312.0,205.0 L 313.0,265.0" pathLength="1" style="--delay:0.385s;--duration:0.245s"/>
+                        <path d="M 324.0,202.0 L 325.0,266.0 L 324.0,267.0 L 317.0,268.0" pathLength="1" style="--delay:0.4025s;--duration:0.245s"/>
+                        <path d="M 360.0,204.0 L 360.0,207.0 L 364.0,212.0 L 364.0,231.0 L 365.0,232.0 L 365.0,280.0" pathLength="1" style="--delay:0.42s;--duration:0.245s"/>
+                        <path d="M 407.0,214.0 L 415.0,222.0 L 428.0,238.0 L 440.0,256.0 L 454.0,283.0 L 454.0,285.0 L 459.0,296.0" pathLength="1" style="--delay:0.4375s;--duration:0.36s"/>
+                        <path d="M 208.0,251.0 L 207.0,252.0 L 207.0,255.0 L 211.0,263.0" pathLength="1" style="--delay:0.455s;--duration:0.245s"/>
+                        <path d="M 214.0,253.0 L 231.0,256.0 L 232.0,257.0 L 236.0,257.0 L 237.0,258.0 L 241.0,258.0 L 242.0,259.0 L 246.0,259.0 L 247.0,260.0 L 251.0,260.0 L 252.0,261.0 L 256.0,261.0 L 261.0,263.0 L 265.0,263.0" pathLength="1" style="--delay:0.4725s;--duration:0.36s"/>
+                        <path d="M 273.0,265.0 L 290.0,268.0 L 291.0,269.0 L 295.0,269.0 L 305.0,272.0" pathLength="1" style="--delay:0.49s;--duration:0.245s"/>
+                        <path d="M 463.0,252.0 L 470.0,263.0 L 483.0,291.0" pathLength="1" style="--delay:0.5075s;--duration:0.245s"/>
+                        <path d="M 216.0,267.0 L 222.0,269.0 L 227.0,269.0 L 228.0,270.0 L 232.0,270.0 L 233.0,271.0 L 237.0,271.0 L 238.0,272.0 L 242.0,272.0 L 243.0,273.0 L 253.0,274.0 L 254.0,275.0 L 277.0,279.0" pathLength="1" style="--delay:0.525s;--duration:0.36s"/>
+                        <path d="M 312.0,273.0 L 362.0,283.0" pathLength="1" style="--delay:0.5425s;--duration:0.245s"/>
+                        <path d="M 304.0,282.0 L 324.0,284.0 L 339.0,289.0" pathLength="1" style="--delay:0.56s;--duration:0.245s"/>
+                        <path d="M 263.0,284.0 L 262.0,283.0 L 260.0,285.0 L 257.0,284.0 L 255.0,286.0 L 253.0,285.0 L 248.0,286.0 L 237.0,291.0" pathLength="1" style="--delay:0.5775s;--duration:0.36s"/>
+                        <path d="M 304.0,284.0 L 305.0,285.0 L 315.0,286.0 L 316.0,287.0 L 339.0,291.0" pathLength="1" style="--delay:0.595s;--duration:0.245s"/>
+                        <path d="M 370.0,285.0 L 387.0,288.0 L 388.0,289.0 L 392.0,289.0 L 393.0,290.0 L 397.0,290.0 L 398.0,291.0 L 402.0,291.0 L 403.0,292.0 L 407.0,292.0 L 408.0,293.0 L 412.0,293.0 L 413.0,294.0 L 431.0,297.0 L 432.0,298.0 L 436.0,298.0 L 437.0,299.0 L 441.0,299.0 L 442.0,300.0 L 446.0,300.0" pathLength="1" style="--delay:0.6125s;--duration:0.36s"/>
+                        <path d="M 481.0,297.0 L 464.0,300.0" pathLength="1" style="--delay:0.63s;--duration:0.245s"/>
+                        <path d="M 372.0,297.0 L 373.0,298.0 L 377.0,298.0 L 378.0,299.0 L 382.0,299.0 L 383.0,300.0 L 387.0,300.0 L 388.0,301.0 L 392.0,301.0 L 398.0,303.0 L 403.0,303.0 L 404.0,304.0 L 408.0,304.0 L 414.0,306.0 L 419.0,306.0 L 424.0,308.0 L 429.0,308.0 L 430.0,309.0 L 434.0,309.0 L 441.0,311.0" pathLength="1" style="--delay:0.6475s;--duration:0.36s"/>
+                        <path d="M 482.0,311.0 L 449.0,317.0" pathLength="1" style="--delay:0.665s;--duration:0.245s"/>
+                        <path d="M 371.0,301.0 L 375.0,302.0 L 394.0,314.0 L 399.0,316.0 L 424.0,335.0 L 438.0,349.0" pathLength="1" style="--delay:0.6825s;--duration:0.245s"/>
+                        <path d="M 215.0,305.0 L 215.0,344.0" pathLength="1" style="--delay:0.7s;--duration:0.245s"/>
+                        <path d="M 293.0,321.0 L 308.0,321.0 L 309.0,322.0 L 327.0,324.0 L 346.0,330.0 L 363.0,338.0 L 385.0,352.0" pathLength="1" style="--delay:0.7175s;--duration:0.36s"/>
+                        <path d="M 482.0,323.0 L 483.0,345.0" pathLength="1" style="--delay:0.735s;--duration:0.245s"/>
+                        <path d="M 265.0,326.0 L 247.0,331.0 L 228.0,340.0 L 219.0,346.0" pathLength="1" style="--delay:0.7525s;--duration:0.245s"/>
+                        <path d="M 442.0,327.0 L 441.0,328.0 L 442.0,347.0" pathLength="1" style="--delay:0.77s;--duration:0.245s"/>
+                        <path d="M 330.0,345.0 L 352.0,347.0 L 356.0,349.0 L 359.0,349.0 L 368.0,352.0 L 383.0,360.0" pathLength="1" style="--delay:0.7875s;--duration:0.245s"/>
+                        <path d="M 211.0,302.0 L 207.0,305.0 L 200.0,308.0 L 179.0,324.0 L 158.0,345.0 L 145.0,363.0 L 141.0,367.0 L 137.0,375.0 L 124.0,395.0 L 124.0,397.0 L 110.0,425.0 L 104.0,443.0" pathLength="1" style="--delay:0.805s;--duration:0.36s"/>
+                        <path d="M 442.0,357.0 L 442.0,408.0" pathLength="1" style="--delay:0.8225s;--duration:0.245s"/>
+                        <path d="M 394.0,363.0 L 409.0,375.0 L 429.0,396.0 L 438.0,408.0" pathLength="1" style="--delay:0.84s;--duration:0.245s"/>
+                        <path d="M 322.0,346.0 L 321.0,347.0 L 315.0,347.0 L 314.0,348.0 L 314.0,444.0" pathLength="1" style="--delay:0.8575s;--duration:0.245s"/>
+                        <path d="M 326.0,350.0 L 326.0,442.0" pathLength="1" style="--delay:0.875s;--duration:0.245s"/>
+                        <path d="M 386.0,366.0 L 385.0,459.0" pathLength="1" style="--delay:0.8925s;--duration:0.245s"/>
+                        <path d="M 389.0,366.0 L 388.0,459.0" pathLength="1" style="--delay:0.91s;--duration:0.245s"/>
+                        <path d="M 211.0,352.0 L 201.0,360.0 L 188.0,373.0 L 175.0,389.0 L 170.0,398.0 L 162.0,409.0 L 157.0,419.0 L 157.0,421.0 L 149.0,436.0 L 148.0,441.0 L 146.0,444.0 L 145.0,449.0 L 143.0,452.0 L 139.0,464.0 L 137.0,475.0 L 133.0,487.0 L 132.0,497.0 L 131.0,498.0 L 130.0,508.0 L 129.0,509.0 L 129.0,514.0" pathLength="1" style="--delay:0.9275s;--duration:0.36s"/>
+                        <path d="M 285.0,326.0 L 286.0,541.0" pathLength="1" style="--delay:0.945s;--duration:0.245s"/>
+                        <path d="M 290.0,326.0 L 290.0,491.0 L 291.0,492.0 L 291.0,541.0" pathLength="1" style="--delay:0.9625s;--duration:0.245s"/>
+                        <path d="M 269.0,329.0 L 270.0,544.0" pathLength="1" style="--delay:0.98s;--duration:0.245s"/>
+                        <path d="M 211.0,363.0 L 191.0,386.0 L 178.0,406.0 L 167.0,428.0 L 162.0,443.0 L 160.0,446.0 L 158.0,454.0 L 156.0,457.0 L 151.0,479.0 L 149.0,483.0 L 148.0,493.0 L 147.0,494.0 L 144.0,512.0" pathLength="1" style="--delay:0.9975s;--duration:0.36s"/>
+                        <path d="M 215.0,364.0 L 215.0,401.0 L 216.0,402.0 L 216.0,526.0" pathLength="1" style="--delay:1.015s;--duration:0.245s"/>
+                        <path d="M 98.0,446.0 L 96.0,447.0 L 91.0,447.0 L 90.0,448.0 L 85.0,448.0 L 84.0,449.0 L 79.0,449.0 L 78.0,450.0" pathLength="1" style="--delay:1.0325s;--duration:0.36s"/>
+                        <path d="M 446.0,356.0 L 472.0,386.0 L 491.0,413.0 L 506.0,438.0 L 523.0,472.0 L 523.0,474.0 L 537.0,507.0 L 537.0,510.0 L 547.0,540.0" pathLength="1" style="--delay:1.05s;--duration:0.36s"/>
+                        <path d="M 102.0,450.0 L 99.0,455.0 L 97.0,454.0 L 78.0,453.0" pathLength="1" style="--delay:1.0675s;--duration:0.245s"/>
+                        <path d="M 71.0,451.0 L 69.0,452.0 L 69.0,506.0 L 70.0,507.0 L 79.0,508.0 L 84.0,510.0 L 88.0,510.0 L 89.0,511.0 L 93.0,511.0 L 94.0,512.0 L 98.0,512.0 L 99.0,513.0 L 103.0,513.0 L 108.0,515.0 L 112.0,515.0 L 113.0,516.0 L 117.0,516.0 L 124.0,518.0" pathLength="1" style="--delay:1.085s;--duration:0.36s"/>
+                        <path d="M 313.0,451.0 L 313.0,545.0" pathLength="1" style="--delay:1.1025s;--duration:0.245s"/>
+                        <path d="M 442.0,420.0 L 442.0,544.0 L 443.0,545.0 L 443.0,580.0" pathLength="1" style="--delay:1.12s;--duration:0.245s"/>
+                        <path d="M 446.0,418.0 L 462.0,443.0 L 474.0,468.0 L 476.0,470.0 L 486.0,494.0 L 486.0,496.0 L 488.0,499.0 L 488.0,501.0 L 490.0,504.0 L 490.0,507.0 L 497.0,526.0 L 497.0,529.0 L 499.0,533.0 L 499.0,536.0 L 503.0,549.0 L 503.0,553.0 L 507.0,567.0 L 507.0,572.0 L 508.0,573.0 L 508.0,579.0 L 509.0,580.0 L 510.0,588.0" pathLength="1" style="--delay:1.1375s;--duration:0.36s"/>
+                        <path d="M 385.0,467.0 L 384.0,561.0" pathLength="1" style="--delay:1.155s;--duration:0.245s"/>
+                        <path d="M 388.0,467.0 L 387.0,561.0" pathLength="1" style="--delay:1.1725s;--duration:0.245s"/>
+                        <path d="M 148.0,517.0 L 212.0,530.0" pathLength="1" style="--delay:1.19s;--duration:0.245s"/>
+                        <path d="M 216.0,534.0 L 216.0,536.0 L 219.0,538.0 L 223.0,538.0 L 224.0,539.0 L 233.0,540.0 L 238.0,542.0 L 242.0,542.0 L 243.0,543.0 L 257.0,545.0 L 262.0,547.0 L 266.0,547.0" pathLength="1" style="--delay:1.2075s;--duration:0.36s"/>
+                        <path d="M 295.0,546.0 L 309.0,548.0" pathLength="1" style="--delay:1.225s;--duration:0.245s"/>
+                        <path d="M 316.0,551.0 L 320.0,551.0 L 325.0,553.0 L 329.0,553.0 L 330.0,554.0 L 334.0,554.0 L 335.0,555.0 L 339.0,555.0 L 349.0,558.0 L 353.0,558.0 L 354.0,559.0 L 358.0,559.0 L 359.0,560.0 L 363.0,560.0 L 364.0,561.0 L 368.0,561.0 L 369.0,562.0 L 380.0,564.0" pathLength="1" style="--delay:1.2425s;--duration:0.36s"/>
+                        <path d="M 387.0,569.0 L 387.0,572.0 L 388.0,573.0 L 439.0,583.0" pathLength="1" style="--delay:1.26s;--duration:0.245s"/>
+                        <path d="M 447.0,583.0 L 459.0,581.0 L 460.0,582.0 L 469.0,583.0 L 474.0,585.0 L 478.0,585.0 L 479.0,586.0 L 483.0,586.0 L 484.0,587.0 L 488.0,587.0 L 489.0,588.0 L 506.0,591.0" pathLength="1" style="--delay:1.2775s;--duration:0.36s"/>
+                        <path d="M 511.0,595.0 L 511.0,597.0 L 513.0,599.0 L 517.0,599.0 L 522.0,601.0 L 526.0,601.0 L 527.0,602.0 L 541.0,604.0 L 546.0,606.0 L 550.0,606.0 L 551.0,607.0 L 574.0,611.0" pathLength="1" style="--delay:1.295s;--duration:0.36s"/>
+                        <path d="M 466.0,248.0 L 472.0,246.0 L 483.0,245.0 L 489.0,243.0 L 506.0,241.0 L 512.0,239.0 L 523.0,238.0 L 529.0,236.0 L 546.0,234.0 L 552.0,232.0 L 569.0,230.0 L 575.0,228.0 L 586.0,227.0 L 592.0,225.0 L 609.0,223.0 L 615.0,221.0 L 626.0,220.0 L 632.0,218.0 L 649.0,216.0 L 655.0,214.0 L 672.0,212.0 L 678.0,210.0 L 689.0,209.0 L 695.0,207.0 L 712.0,205.0 L 718.0,203.0 L 729.0,202.0 L 735.0,200.0 L 752.0,198.0 L 758.0,196.0 L 763.0,196.0 L 764.0,195.0 L 769.0,195.0 L 770.0,194.0 L 775.0,194.0 L 776.0,193.0 L 786.0,192.0 L 787.0,191.0 L 793.0,191.0 L 800.0,189.0 L 828.0,188.0 L 829.0,189.0 L 851.0,191.0 L 863.0,195.0 L 870.0,196.0 L 884.0,201.0 L 896.0,207.0 L 898.0,207.0 L 929.0,225.0 L 957.0,247.0 L 983.0,273.0 L 995.0,287.0 L 1015.0,314.0 L 1032.0,342.0 L 1054.0,387.0 L 1054.0,389.0 L 1064.0,412.0 L 1074.0,444.0" pathLength="1" style="--delay:1.32s;--duration:0.36s"/>
+                        <path d="M 1079.0,449.0 L 1103.0,457.0" pathLength="1" style="--delay:1.4s;--duration:0.245s"/>
+                        <path d="M 1072.0,449.0 L 1065.0,451.0 L 1049.0,453.0 L 1048.0,454.0 L 1031.0,456.0 L 1030.0,457.0 L 1014.0,459.0 L 1008.0,461.0 L 991.0,463.0 L 985.0,465.0 L 968.0,467.0 L 967.0,468.0 L 951.0,470.0 L 945.0,472.0 L 928.0,474.0 L 927.0,475.0 L 911.0,477.0 L 905.0,479.0 L 888.0,481.0 L 882.0,483.0 L 865.0,485.0 L 864.0,486.0 L 848.0,488.0 L 842.0,490.0 L 825.0,492.0 L 819.0,494.0 L 808.0,495.0 L 802.0,497.0 L 785.0,499.0 L 779.0,501.0 L 762.0,503.0 L 756.0,505.0 L 745.0,506.0 L 739.0,508.0 L 722.0,510.0 L 716.0,512.0 L 705.0,513.0 L 699.0,515.0 L 682.0,517.0 L 676.0,519.0 L 659.0,521.0 L 653.0,523.0 L 642.0,524.0 L 636.0,526.0 L 619.0,528.0 L 613.0,530.0 L 608.0,530.0 L 607.0,531.0 L 602.0,531.0 L 596.0,533.0 L 591.0,533.0 L 590.0,534.0 L 585.0,534.0 L 584.0,535.0 L 579.0,535.0 L 573.0,537.0 L 568.0,537.0 L 567.0,538.0 L 562.0,538.0 L 561.0,539.0 L 553.0,540.0" pathLength="1" style="--delay:1.48s;--duration:0.36s"/>
+                        <path d="M 1103.0,460.0 L 584.0,551.0" pathLength="1" style="--delay:1.56s;--duration:0.245s"/>
+                        <path d="M 1102.0,472.0 L 1101.0,473.0 L 1096.0,473.0 L 1095.0,474.0 L 1084.0,475.0 L 1078.0,477.0 L 1061.0,479.0 L 1060.0,480.0 L 1044.0,482.0 L 1038.0,484.0 L 1021.0,486.0 L 1020.0,487.0 L 1004.0,489.0 L 998.0,491.0 L 981.0,493.0 L 975.0,495.0 L 958.0,497.0 L 952.0,499.0 L 941.0,500.0 L 935.0,502.0 L 918.0,504.0 L 912.0,506.0 L 901.0,507.0 L 895.0,509.0 L 878.0,511.0 L 872.0,513.0 L 855.0,515.0 L 849.0,517.0 L 838.0,518.0 L 832.0,520.0 L 815.0,522.0 L 809.0,524.0 L 798.0,525.0 L 792.0,527.0 L 775.0,529.0 L 769.0,531.0 L 752.0,533.0 L 746.0,535.0 L 735.0,536.0 L 729.0,538.0 L 712.0,540.0 L 706.0,542.0 L 695.0,543.0 L 689.0,545.0 L 672.0,547.0 L 666.0,549.0 L 649.0,551.0 L 643.0,553.0 L 632.0,554.0 L 626.0,556.0 L 621.0,556.0 L 620.0,557.0 L 615.0,557.0 L 614.0,558.0 L 609.0,558.0 L 608.0,559.0 L 584.0,563.0" pathLength="1" style="--delay:1.64s;--duration:0.36s"/>
+                        <path d="M 1102.0,487.0 L 582.0,578.0" pathLength="1" style="--delay:1.72s;--duration:0.245s"/>
+                        <path d="M 553.0,543.0 L 576.0,550.0" pathLength="1" style="--delay:1.8s;--duration:0.245s"/>
+                        <path d="M 1106.0,490.0 L 1106.0,519.0 L 1102.0,521.0 L 1091.0,522.0 L 1085.0,524.0 L 1068.0,526.0 L 1062.0,528.0 L 1045.0,530.0 L 1039.0,532.0 L 1034.0,532.0 L 1033.0,533.0 L 1028.0,533.0 L 1022.0,535.0 L 1005.0,537.0 L 1004.0,538.0 L 988.0,540.0 L 982.0,542.0 L 965.0,544.0 L 959.0,546.0 L 942.0,548.0 L 936.0,550.0 L 931.0,550.0 L 930.0,551.0 L 925.0,551.0 L 919.0,553.0 L 902.0,555.0 L 901.0,556.0 L 885.0,558.0 L 879.0,560.0 L 862.0,562.0 L 856.0,564.0 L 839.0,566.0 L 838.0,567.0 L 822.0,569.0 L 816.0,571.0 L 799.0,573.0 L 798.0,574.0 L 782.0,576.0 L 776.0,578.0 L 759.0,580.0 L 753.0,582.0 L 736.0,584.0 L 735.0,585.0 L 719.0,587.0 L 713.0,589.0 L 696.0,591.0 L 695.0,592.0 L 679.0,594.0 L 673.0,596.0 L 668.0,596.0 L 667.0,597.0 L 656.0,598.0 L 650.0,600.0 L 633.0,602.0 L 627.0,604.0 L 616.0,605.0 L 610.0,607.0 L 605.0,607.0 L 604.0,608.0 L 593.0,609.0 L 587.0,611.0 L 582.0,611.0" pathLength="1" style="--delay:1.88s;--duration:0.36s"/>
+                        <path d="M 578.0,582.0 L 578.0,608.0" pathLength="1" style="--delay:1.96s;--duration:0.245s"/>
+                </g>
+                <!-- Los bordes originales del PNG aparecen al terminar el trazado: geometría idéntica -->
+                <image class="ink-finish" width="1137" height="628" href="assets/planimetria-cad-arquitectura-lineas.png"/>
+                </svg>
+              </button>
               <span class="project-number">03</span>
-              <span class="placeholder-tag">Espacio reservado</span>
             </div>
             <div class="project-info">
-              <div class="project-meta">Planimetría/CAD · Pendiente</div>
-              <h3 class="project-title">Proyecto 03 · Título pendiente</h3>
-              <p class="project-desc">Espacio reservado para un proyecto de planimetría o CAD.</p>
+              <div class="project-meta">Planimetría/CAD · Arquitectura</div>
+              <h3 class="project-title">Del trazo al volumen</h3>
+              <p class="project-desc">Dibujo arquitectónico con trazado progresivo y aparición del modelo tridimensional.</p>
               <button class="project-link" data-open-project type="button">
                 Ver proyecto ↗
               </button>
@@ -4070,33 +5557,31 @@
             </div>
           </article>
 
-          <article class="project placeholder documentacion" data-category="documentacion"
-            data-details="Espacio reservado para añadir la descripción, las imágenes y el proceso de un proyecto de documentación o QGIS.">
+          <article class="project documentacion project-sexi" data-category="documentacion" data-ficha="ficha-sexi"
+            data-details="Estudio territorial de la antigua Sexi y recreación visual de su paisaje fenicio-púnico mediante QGIS y Blender.">
             <div class="project-art">
-              <span class="art-symbol" aria-hidden="true">⌖</span>
+              <img src="assets/sexi-paleogeografia-portada.png" alt="Mapa comparativo de la evolución de la costa de Sexi en 1962, 1985 y 2026, con geología, ríos y necrópolis" loading="lazy">
               <span class="project-number">01</span>
-              <span class="placeholder-tag">Espacio reservado</span>
             </div>
             <div class="project-info">
-              <div class="project-meta">Documentación/QGIS · Pendiente</div>
-              <h3 class="project-title">Proyecto 01 · Título pendiente</h3>
-              <p class="project-desc">Espacio reservado para un proyecto de documentación o QGIS.</p>
+              <div class="project-meta">Documentación/QGIS · Trabajo académico</div>
+              <h3 class="project-title">Análisis paleogeográfico y recreación 3D de la Sexi fenicio-púnica</h3>
+              <p class="project-desc">Estudio del paisaje fluvio-litoral de la antigua Sexi y de su relación con las necrópolis mediante QGIS y Blender.</p>
               <button class="project-link" data-open-project type="button">
                 Ver proyecto ↗
               </button>
             </div>
           </article>
 
-          <article class="project placeholder documentacion" data-category="documentacion"
+          <article class="project documentacion project-qgis-02" data-category="documentacion"
             data-details="Espacio reservado para añadir la descripción, las imágenes y el proceso de un proyecto de documentación o QGIS.">
             <div class="project-art">
-              <span class="art-symbol" aria-hidden="true">⌖</span>
+              <img src="assets/proyecto-qgis-granada-portada.png" alt="Mapa de la distribución del patrimonio inmueble de los barrios de Granada, con detalle del Albaicín" loading="lazy">
               <span class="project-number">02</span>
-              <span class="placeholder-tag">Espacio reservado</span>
             </div>
             <div class="project-info">
               <div class="project-meta">Documentación/QGIS · Pendiente</div>
-              <h3 class="project-title">Proyecto 02 · Título pendiente</h3>
+              <h3 class="project-title">Patrimonio inmueble de los barrios de Granada</h3>
               <p class="project-desc">Espacio reservado para un proyecto de documentación o QGIS.</p>
               <button class="project-link" data-open-project type="button">
                 Ver proyecto ↗
@@ -4104,16 +5589,15 @@
             </div>
           </article>
 
-          <article class="project placeholder documentacion" data-category="documentacion"
+          <article class="project documentacion project-qgis-03" data-category="documentacion"
             data-details="Espacio reservado para añadir la descripción, las imágenes y el proceso de un proyecto de documentación o QGIS.">
             <div class="project-art">
-              <span class="art-symbol" aria-hidden="true">⌖</span>
+              <img src="assets/proyecto-qgis-castellon-alto-portada.png" alt="Mapa topográfico de localización de la zona arqueológica El Castellón Alto, con ubicación en las provincias andaluzas" loading="lazy">
               <span class="project-number">03</span>
-              <span class="placeholder-tag">Espacio reservado</span>
             </div>
             <div class="project-info">
               <div class="project-meta">Documentación/QGIS · Pendiente</div>
-              <h3 class="project-title">Proyecto 03 · Título pendiente</h3>
+              <h3 class="project-title">Localización de zona arqueológica "El Castellón Alto"</h3>
               <p class="project-desc">Espacio reservado para un proyecto de documentación o QGIS.</p>
               <button class="project-link" data-open-project type="button">
                 Ver proyecto ↗
@@ -4121,16 +5605,15 @@
             </div>
           </article>
 
-          <article class="project placeholder documentacion" data-category="documentacion"
+          <article class="project documentacion project-qgis-04" data-category="documentacion"
             data-details="Espacio reservado para añadir la descripción, las imágenes y el proceso de un proyecto de documentación o QGIS.">
             <div class="project-art">
-              <span class="art-symbol" aria-hidden="true">⌖</span>
+              <img src="assets/proyecto-qgis-murallas-granada-portada.png" alt="Mapa de las murallas en el núcleo urbano de Granada, con edificaciones singulares, torres, río y trazado de la muralla" loading="lazy">
               <span class="project-number">04</span>
-              <span class="placeholder-tag">Espacio reservado</span>
             </div>
             <div class="project-info">
               <div class="project-meta">Documentación/QGIS · Pendiente</div>
-              <h3 class="project-title">Proyecto 04 · Título pendiente</h3>
+              <h3 class="project-title">Murallas en el Núcleo Urbano de Granada</h3>
               <p class="project-desc">Espacio reservado para un proyecto de documentación o QGIS.</p>
               <button class="project-link" data-open-project type="button">
                 Ver proyecto ↗
@@ -4138,47 +5621,75 @@
             </div>
           </article>
 
-          <article class="project placeholder tfg" data-category="tfg" data-destacado="true"
-            data-details="Espacio reservado para añadir la descripción, el proceso, los resultados y las imágenes del TFG.">
+          <article class="project documentacion project-qgis-05" data-category="documentacion"
+            data-details="Recuento y distribución espacial de artefactos arqueológicos documentados en un recinto mediante QGIS.">
             <div class="project-art">
-              <span class="art-symbol" aria-hidden="true">T</span>
+              <img src="assets/proyecto-qgis-recuento-artefactos-recinto-portada.png" alt="Vista en QGIS de un recinto arqueológico con puntos de artefactos sobre una ortofotografía y una tabla de recuento" loading="lazy">
+              <span class="project-number">05</span>
+            </div>
+            <div class="project-info">
+              <div class="project-meta">Documentación/QGIS · Recuento espacial</div>
+              <h3 class="project-title">Recuento de artefactos arqueológicos en recinto</h3>
+              <p class="project-desc">Recuento y representación espacial de artefactos arqueológicos documentados en un recinto.</p>
+              <button class="project-link" data-open-project type="button">
+                Ver proyecto ↗
+              </button>
+            </div>
+          </article>
+
+          <article class="project tfg project-haltern-70b" data-category="tfg" data-ficha="ficha-haltern-70b"
+            data-details="La presente reconstrucción tridimensional corresponde a un ánfora romana de tipología Haltern 70B, elaborada a partir del estudio de fragmentos cerámicos recuperados durante la campaña arqueológica de 2025 en el alfar romano de Cartuja, situado en el actual Campus Universitario de Cartuja, en Granada. Esta intervención se desarrolló en el marco de las actividades docentes de formación arqueológica de la Universidad de Granada, vinculadas al Prácticum del Grado en Arqueología.">
+            <div class="project-art">
+              <object class="haltern-interactive-cover"
+                data="assets/haltern-70b-portada-interactiva.svg" type="image/svg+xml"
+                role="img" aria-label="Ánfora Haltern 70B interactiva: al entrar aparece el boceto y al mover la brocha reaparece el color">
+                <img src="assets/haltern-70b-portada.png"
+                  alt="Ánfora romana Haltern 70B sobre fondo gris claro" loading="lazy">
+              </object>
               <span class="project-number">01</span>
-              <span class="placeholder-tag">Espacio reservado</span>
             </div>
             <div class="project-info">
-              <div class="project-meta">TFG · Pendiente</div>
-              <h3 class="project-title">TFG 01 · Título pendiente</h3>
-              <p class="project-desc">Espacio reservado para presentar el Trabajo de Fin de Grado.</p>
+              <div class="project-meta">TFG · Alfar romano de Cartuja</div>
+              <h3 class="project-title">TFG 01 · Haltern 70 B</h3>
+              <p class="project-desc">Reconstrucción tridimensional de un ánfora romana a partir de fragmentos cerámicos hallados en Cartuja.</p>
               <button class="project-link" data-open-project type="button">Ver proyecto ↗</button>
             </div>
           </article>
 
-          <article class="project placeholder tfg" data-category="tfg"
-            data-details="Espacio reservado para añadir la descripción, el proceso, los resultados y las imágenes del TFG.">
+          <article class="project tfg project-dressel-20f" data-category="tfg" data-ficha="ficha-dressel-20f"
+            data-details="La presente reconstrucción tridimensional corresponde a un ánfora romana de tipología Dressel 20, elaborada a partir del estudio de fragmentos cerámicos recuperados durante la campaña arqueológica de 2025 en el alfar romano de Cartuja, situado en el actual Campus Universitario de Cartuja, en Granada. Esta intervención se desarrolló en el marco de las actividades docentes de formación arqueológica de la Universidad de Granada, vinculadas al Prácticum del Grado en Arqueología.">
             <div class="project-art">
-              <span class="art-symbol" aria-hidden="true">T</span>
+              <object class="dressel-interactive-cover"
+                data="assets/dressel-20f-portada-interactiva.svg" type="image/svg+xml"
+                role="img" aria-label="Ánfora Dressel 20 F interactiva: una brocha revela el boceto a lápiz al mover el cursor">
+                <img src="assets/dressel-20f-portada.png"
+                  alt="Reconstrucción tridimensional de un ánfora romana Dressel 20 F sobre fondo gris claro" loading="lazy">
+              </object>
               <span class="project-number">02</span>
-              <span class="placeholder-tag">Espacio reservado</span>
             </div>
             <div class="project-info">
-              <div class="project-meta">TFG · Pendiente</div>
-              <h3 class="project-title">TFG 02 · Título pendiente</h3>
-              <p class="project-desc">Espacio reservado para presentar el Trabajo de Fin de Grado.</p>
+              <div class="project-meta">TFG · Alfar romano de Cartuja</div>
+              <h3 class="project-title">TFG 02 · Dressel 20 F</h3>
+              <p class="project-desc">Reconstrucción tridimensional de un ánfora Dressel 20 F documentada en el alfar romano de Cartuja.</p>
               <button class="project-link" data-open-project type="button">Ver proyecto ↗</button>
             </div>
           </article>
 
-          <article class="project placeholder tfg" data-category="tfg"
-            data-details="Espacio reservado para añadir la descripción, el proceso, los resultados y las imágenes del TFG.">
+          <article class="project tfg project-oberaden-83" data-category="tfg"
+            data-details="Representación interactiva de un ánfora romana de tipología Oberaden 83.">
             <div class="project-art">
-              <span class="art-symbol" aria-hidden="true">T</span>
+              <object class="oberaden-interactive-cover"
+                data="assets/oberaden-83-portada-interactiva.svg" type="image/svg+xml"
+                role="img" aria-label="Ánfora Oberaden 83 interactiva: al pasar el ratón se convierte en boceto y la brocha revela el color">
+                <img src="assets/oberaden-83-portada-interactiva.svg"
+                  alt="Ánfora romana de tipología Oberaden 83" loading="lazy">
+              </object>
               <span class="project-number">03</span>
-              <span class="placeholder-tag">Espacio reservado</span>
             </div>
             <div class="project-info">
-              <div class="project-meta">TFG · Pendiente</div>
-              <h3 class="project-title">TFG 03 · Título pendiente</h3>
-              <p class="project-desc">Espacio reservado para presentar el Trabajo de Fin de Grado.</p>
+              <div class="project-meta">TFG · Oberaden 83</div>
+              <h3 class="project-title">TFG 03 - Oberaden 83</h3>
+              <p class="project-desc">Representación interactiva de un ánfora romana de tipología Oberaden 83.</p>
               <button class="project-link" data-open-project type="button">Ver proyecto ↗</button>
             </div>
           </article>
@@ -4223,7 +5734,15 @@
           <h2 class="section-title about-title">Entre<br><em style="color:var(--terracotta-dark)">patrimonio</em> y <em
               style="color:var(--terracotta-dark)">técnica</em>.</h2>
           <figure class="about-figure">
-            <img src="assets/anforas%20(2).png" alt="Visualización 3D de ánforas en una escena de Blender" loading="lazy">
+            <div class="about-video-frame">
+              <video class="about-video" muted loop playsinline preload="metadata"
+                poster="assets/anforas%20(2).png"
+                aria-label="Vídeo de una escena 3D con ánforas">
+                <source src="assets/flujo-anfora.mp4" type="video/mp4">
+                Tu navegador no puede reproducir este vídeo.
+              </video>
+            </div>
+            <figcaption class="about-video-caption">flujo de trabajo en blender</figcaption>
           </figure>
         </div>
         <div class="about-text">
@@ -4232,10 +5751,12 @@
           <p>Este portfolio reúne mis proyectos desde los primeros pasos hasta los más elaborados, con recursos visuales que contribuyan a la <strong>documentación, interpretación y difusión del patrimonio</strong>.</p>
           <div class="about-rule"></div>
           <div class="study-list">
-            <div><span>Área de estudio</span>
+            <div class="study-tag">
+              <span>Área de estudio</span>
               <p>Arqueología y patrimonio cultural</p>
             </div>
-            <div><span>Formación técnica</span>
+            <div class="study-tag">
+              <span>Formación técnica</span>
               <p>Proyectos de Obra Civil</p>
             </div>
           </div>
@@ -4245,27 +5766,82 @@
     <!-- HERRAMIENTAS: edita o añade etiquetas <span class="tag">. -->
     <section class="tools-section section-pad" id="herramientas">
       <div class="container tools-layout">
-        <div>
+        <div class="tools-heading">
           <div class="eyebrow">Método y herramientas</div>
           <h2 class="section-title">Del registro a la <em style="color:var(--terracotta-dark)">representación.</em></h2>
-          <p class="section-intro">Combino herramientas de captura, modelado y dibujo técnico según las necesidades de
-            cada proyecto.</p>
         </div>
-        <div class="tool-groups">
-          <div class="tool-group">
-            <h3>Modelado y visualización 3D</h3>
-            <div class="tags"><span class="tag">Blender</span><span class="tag">Modelado de estructuras</span><span
-                class="tag">Visualización de materiales</span></div>
+        <div class="tools-bottom">
+          <div class="tools-copy">
+            <p class="section-intro">Integro herramientas de documentación, fotogrametría, sistemas de información geográfica,
+              modelado 3D y representación técnica para el estudio, la interpretación y la visualización del patrimonio arqueológico.</p>
+            <div class="tool-groups">
+              <div class="tool-group">
+                <h3>Modelado 3D y Fotogrametría</h3>
+                <div class="tags"><span class="tag">Blender</span><span class="tag">Agisoft Metashape</span><span
+                    class="tag">Autodesk ReCap</span></div>
+              </div>
+              <div class="tool-group">
+                <h3>SIG y Dibujo Técnico</h3>
+                <div class="tags"><span class="tag">QGIS</span><span class="tag">ArcGIS Pro</span><span
+                    class="tag">AutoCAD</span><span class="tag">Topcal</span></div>
+              </div>
+              <div class="tool-group">
+                <h3>Infraestructuras y BIM</h3>
+                <div class="tags"><span class="tag">Civil 3D</span><span class="tag">InfraWorks</span><span
+                    class="tag">Revit</span><span class="tag">dmELECT</span></div>
+              </div>
+            </div>
           </div>
-          <div class="tool-group">
-            <h3>Fotogrametría y documentación</h3>
-            <div class="tags"><span class="tag">Agisoft Metashape</span><span class="tag">Reconstrucción 3D</span><span
-                class="tag">Documentación patrimonial</span></div>
-          </div>
-          <div class="tool-group">
-            <h3>Planos y obra civil</h3>
-            <div class="tags"><span class="tag">AutoCAD</span><span class="tag">Civil 3D</span><span class="tag">Dibujo
-                técnico</span><span class="tag">Representación del terreno</span></div>
+          <div class="tools-gallery">
+            <div class="tools-watercolor-reveal" aria-hidden="true">
+            <svg class="tools-watercolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 700" focusable="false">
+              <defs>
+                <filter id="tools-pigment-roughness" x="-12%" y="-12%" width="124%" height="124%">
+                  <feTurbulence type="fractalNoise" baseFrequency=".021 .034" numOctaves="3" seed="23" result="tools-pigment-noise" />
+                  <feDisplacementMap in="SourceGraphic" in2="tools-pigment-noise" scale="13" xChannelSelector="R" yChannelSelector="G" />
+                </filter>
+                <linearGradient id="tools-pigment-base" x1=".12" y1=".04" x2=".88" y2=".96">
+                  <stop offset="0" stop-color="#DDE7D6" stop-opacity=".78" />
+                  <stop offset=".34" stop-color="#B4C7B1" stop-opacity=".68" />
+                  <stop offset=".7" stop-color="#789381" stop-opacity=".58" />
+                  <stop offset="1" stop-color="#506B5D" stop-opacity=".46" />
+                </linearGradient>
+                <radialGradient id="tools-pigment-pool" cx=".66" cy=".72" r=".64">
+                  <stop offset="0" stop-color="#526D5F" stop-opacity=".48" />
+                  <stop offset=".54" stop-color="#668271" stop-opacity=".26" />
+                  <stop offset="1" stop-color="#668271" stop-opacity="0" />
+                </radialGradient>
+                <radialGradient id="tools-pigment-light" cx=".22" cy=".19" r=".88">
+                  <stop offset="0" stop-color="#EDF1E5" stop-opacity=".82" />
+                  <stop offset="1" stop-color="#C9D7C5" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <g filter="url(#tools-pigment-roughness)">
+                <path d="M137 161 C164 132 199 142 223 119 C251 92 282 106 308 118 C334 130 355 106 384 112 C416 119 435 144 462 147 C493 150 516 169 524 196 C533 223 562 229 583 251 C605 274 594 302 613 326 C634 350 622 376 601 396 C582 415 596 440 577 463 C558 486 528 482 509 504 C489 528 461 537 435 525 C409 513 389 539 363 534 C335 529 322 507 293 517 C264 527 238 510 225 486 C211 462 182 462 163 442 C143 421 158 394 138 374 C117 353 124 325 142 305 C159 284 142 260 145 236 C148 211 119 187 137 161Z" fill="url(#tools-pigment-base)" />
+                <path d="M186 171 C215 145 244 159 273 142 C303 124 327 149 355 147 C383 145 403 159 421 176 C441 196 464 194 487 212 C510 230 521 255 544 270 C567 287 558 310 575 333 C592 354 574 373 558 391 C540 411 560 432 542 451 C524 470 499 463 481 482 C462 503 440 507 419 495 C396 483 379 505 355 499 C332 493 319 475 293 484 C267 493 246 476 235 456 C223 435 198 435 182 416 C166 397 181 375 164 357 C147 337 155 315 171 297 C187 279 170 257 176 235 C181 214 167 190 186 171Z" fill="url(#tools-pigment-pool)" opacity=".84" />
+                <path d="M151 263 C170 243 193 248 205 231 C220 210 244 218 258 234 C272 249 271 270 259 288 C247 306 225 312 216 333 C205 356 183 366 165 357 C146 348 141 326 149 307 C157 290 140 278 151 263Z" fill="#789381" opacity=".24" />
+                <path d="M449 367 C469 346 493 349 511 362 C529 376 527 397 542 413 C558 430 547 452 528 463 C510 475 490 461 474 470 C456 480 438 464 440 446 C442 426 426 416 435 397 C439 384 442 376 449 367Z" fill="#526D5F" opacity=".25" />
+                <path d="M291 158 C316 140 341 151 360 148 C382 144 397 159 405 176 C413 192 401 206 384 208 C363 211 350 224 330 217 C311 211 303 197 286 193 C268 189 273 171 291 158Z" fill="#E4EBDD" opacity=".38" />
+                <path d="M248 450 C271 433 292 445 313 440 C336 435 350 451 345 470 C340 488 318 492 301 485 C284 478 268 494 250 483 C235 474 233 460 248 450Z" fill="#698674" opacity=".24" />
+              </g>
+              <g fill="#526D5F" opacity=".25">
+                <path d="M103 211 C113 204 122 208 124 216 C126 224 119 230 112 228 C104 227 99 218 103 211Z" />
+                <path d="M589 213 C597 207 605 211 607 219 C609 226 603 232 596 230 C589 228 585 220 589 213Z" />
+                <path d="M612 466 C621 459 630 464 629 472 C628 480 621 484 614 480 C608 477 607 471 612 466Z" />
+                <path d="M170 526 C178 519 187 522 188 530 C189 537 182 542 175 539 C169 537 166 531 170 526Z" />
+                <path d="M532 552 C539 546 547 548 548 555 C549 562 543 568 536 565 C530 563 527 557 532 552Z" />
+                <circle cx="91" cy="374" r="4" />
+                <circle cx="633" cy="319" r="5" />
+                <circle cx="588" cy="584" r="3" />
+              </g>
+              <g fill="url(#tools-pigment-light)" opacity=".4">
+                <path d="M134 181 C177 130 224 151 253 121 C284 90 320 121 352 126 C383 131 399 151 427 154 C463 158 484 181 503 207 C522 234 554 239 570 268 C587 296 566 319 584 345 C599 367 578 389 563 407 C547 425 565 445 549 466 C532 487 507 477 488 497 C465 521 435 529 411 515 C386 501 366 528 340 518 C316 509 303 491 278 499 C249 508 226 489 214 465 C201 441 173 442 155 423 C137 404 151 379 133 359 C115 340 125 315 140 296 C157 275 137 250 141 228 C144 210 123 194 134 181Z" />
+              </g>
+            </svg>
+            </div>
+            <img class="tools-object tools-anforits" src="assets/AnforitsG.png" alt="Ánfora reconstruida en 3D" loading="lazy">
+            <img class="tools-object tools-cuenco" src="assets/cuenco.png" alt="Cuenco reconstruido en 3D" loading="lazy">
+            <img class="tools-object tools-vaso" src="assets/vaso.png" alt="Vaso reconstruido en 3D" loading="lazy">
           </div>
         </div>
       </div>
@@ -4275,20 +5851,62 @@
       <div class="container contact-inner">
         <div>
           <div class="eyebrow">Contacto</div>
-          <h2 class="section-title">¿Hablamos de nuevas <em>perspectivas?</em></h2>
-          <p class="contact-copy">Si te interesan la arqueología, la documentación del patrimonio y la representación
-            digital, este espacio está pensado para conectar ideas, proyectos y colaboraciones.</p>
+          <h2 class="section-title">¿Hablamos de nuevas <em>perspectivas</em>?</h2>
+          <p class="contact-copy">Entre la arqueología, el patrimonio y la ingeniería civil, siempre hay nuevas perspectivas por explorar. Si compartimos intereses, ideas o proyectos, estaré encantada de conectar contigo.</p>
         </div>
-        <aside class="contact-aside"><span class="aside-label">Antes de publicar</span>
-          <p>Añade aquí tu correo profesional y, si lo deseas, un enlace a LinkedIn o a tu visor de modelos 3D. No he
-            incluido direcciones inventadas.</p>
+        <aside class="contact-aside">
+          <div class="contact-social-links">
+            <a class="contact-social-link" href="https://www.linkedin.com/in/maria-emilia-toledo-67396938b/"
+              target="_blank" rel="noopener noreferrer">
+              <span class="contact-social-icon" aria-hidden="true">
+                <img src="assets/linkedin-icon-terracotta.png" alt="">
+              </span>
+              <span class="contact-social-label">LinkedIn</span>
+            </a>
+            <a class="contact-social-link" href="https://sketchfab.com/ToledoMaria"
+              target="_blank" rel="noopener noreferrer">
+              <span class="contact-social-icon" aria-hidden="true">
+                <img src="assets/sketchfab-icon-terracotta.png" alt="">
+              </span>
+              <span class="contact-social-label">Sketchfab</span>
+            </a>
+            <button class="contact-social-link contact-email-trigger" id="contact-email-open"
+              type="button" aria-haspopup="dialog" aria-controls="contact-email-dialog">
+                <span class="contact-social-icon" aria-hidden="true">
+                  <img src="assets/email-icon-terracotta.png" alt="">
+                </span>
+                <span class="contact-social-label">Enviar correo</span>
+            </button>
+          </div>
         </aside>
       </div>
     </section>
+    <dialog class="contact-email-dialog" id="contact-email-dialog" aria-labelledby="contact-email-title">
+      <div class="contact-email-dialog-inner">
+        <div class="contact-email-dialog-header">
+          <h2 id="contact-email-title">Enviar correo</h2>
+          <button class="contact-email-close" id="contact-email-close" type="button"
+            aria-label="Cerrar ventana">×</button>
+        </div>
+        <form class="contact-email-form" id="contact-email-form"
+          action="mailto:maemtoledo@gmail.com" method="post" enctype="text/plain">
+          <label for="contact-email-recipient">Para:</label>
+          <input id="contact-email-recipient" name="recipient" type="email"
+            value="maemtoledo@gmail.com" readonly>
+          <label for="contact-email-subject">Asunto:</label>
+          <input id="contact-email-subject" name="subject" type="text"
+            placeholder="Escribe el asunto" required>
+          <label for="contact-email-message">Mensaje:</label>
+          <textarea id="contact-email-message" name="message"
+            placeholder="Escribe tu mensaje aquí…" required></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </dialog>
   </main>
   <footer class="footer">
     <div class="container footer-inner"><span class="footer-name">María Emilia Toledo <span style="color:#CCA083">/
-          Arkaika</span></span><span>Portfolio de arqueología, modelado 3D y fotogrametría · <span
+          Arkaika</span></span><span>Portfolio de arqueología y proyectos de Obra Civil · <span
           id="year">2026</span></span></div>
   </footer>
   <dialog id="project-modal" aria-labelledby="project-modal-title">
@@ -4965,9 +6583,157 @@
               <figcaption>Modelo tridimensional final del Aljibe de San Nicolás.</figcaption>
             </figure>
           </section>
+
+          <section class="aljibe-proceso-etapa aljibe-recap-etapa">
+            <h4>Nube de Puntos en ReCAP</h4>
+            <figure>
+              <img src="assets/aljibe-nube-puntos-recap.png" alt="Nube de puntos del Aljibe de San Nicolás visualizada en Autodesk ReCap Pro" loading="lazy">
+              <figcaption>Nube de puntos del Aljibe de San Nicolás visualizada en Autodesk ReCap Pro.</figcaption>
+            </figure>
+          </section>
+        </section>
+
+        <section class="aljibe-proceso aljibe-civil3d">
+          <h3>03. Sólido en Civil 3D</h3>
+          <section class="aljibe-proceso-etapa aljibe-civil3d-etapa">
+            <h4>Dibujo con nube de puntos en Civil 3D</h4>
+            <figure>
+              <img src="assets/aljibe-civil3d-nube-puntos.png" alt="Dibujo del Aljibe de San Nicolás en Civil 3D sobre la nube de puntos" loading="lazy">
+              <figcaption>Dibujo del aljibe con la nube de puntos en Civil 3D.</figcaption>
+            </figure>
+          </section>
+
+          <section class="aljibe-proceso-etapa aljibe-civil3d-etapa">
+            <h4>Sólido final por capas</h4>
+            <figure>
+              <img src="assets/aljibe-civil3d-solido-por-capas.png" alt="Sólido final del Aljibe de San Nicolás modelado por capas en Civil 3D" loading="lazy">
+              <figcaption>Modelo final del aljibe organizado por capas.</figcaption>
+            </figure>
+          </section>
         </section>
       </div>
     </div>
+  </template>
+  <template id="ficha-haltern-70b">
+    <div class="ficha-haltern">
+      <div class="ficha-haltern-visor">
+        <iframe title="Modelo 3D de un ánfora romana Haltern 70B en Sketchfab"
+          data-src="https://sketchfab.com/models/06ca1f4b629645159727b0385cee8353/embed?autostart=1&amp;autospin=0.2"
+          allow="autoplay; fullscreen; xr-spatial-tracking" allowfullscreen mozallowfullscreen="true"
+          webkitallowfullscreen="true" xr-spatial-tracking execution-while-out-of-viewport
+          execution-while-not-rendered web-share>
+        </iframe>
+      </div>
+      <p class="ficha-haltern-credit">
+        <a href="https://sketchfab.com/3d-models/haltern-70-d-06ca1f4b629645159727b0385cee8353"
+          target="_blank" rel="nofollow noopener">Haltern 70 D</a> by
+        <a href="https://sketchfab.com/ToledoMaria" target="_blank" rel="nofollow noopener">María E.</a> on
+        <a href="https://sketchfab.com" target="_blank" rel="nofollow noopener">Sketchfab</a>
+      </p>
+      <div class="ficha-haltern-contenido">
+        <h2>Haltern 70 B</h2>
+        <p>
+          La presente reconstrucción tridimensional corresponde a un ánfora romana de tipología <strong>Haltern 70B</strong>, elaborada a partir del estudio de fragmentos cerámicos recuperados durante la campaña arqueológica de 2025 en el <strong>alfar romano de Cartuja</strong>, situado en el actual Campus Universitario de Cartuja, en Granada.
+        </p>
+        <p>
+          Esta intervención se desarrolló en el marco de las actividades docentes de formación arqueológica de la Universidad de Granada, vinculadas al Prácticum del Grado en Arqueología.
+        </p>
+
+        <section class="haltern-contexto">
+          <h3>01. Contexto histórico</h3>
+          <p>
+            El alfar romano de Cartuja constituye un importante complejo de producción cerámica relacionado con el entorno de la antigua <em>Florentia Iliberritana</em>. Las investigaciones arqueológicas han permitido documentar estructuras de combustión, espacios destinados al tratamiento de las arcillas y áreas de vertido vinculadas a la actividad artesanal. La <strong>Haltern 70B</strong> constituye una variante de las ánforas romanas Haltern 70, cuya producción y comercialización se relaciona fundamentalmente con los territorios de la antigua provincia de la Bética.
+          </p>
+          <p>
+            Esta variante se sitúa cronológicamente entre los gobiernos de Augusto y Tiberio, desde finales del siglo I a. C. hasta las primeras décadas del siglo I d. C.
+          </p>
+          <p>
+            Se caracteriza por una morfología relativamente estandarizada, con cuerpo ovoide, cuello corto, borde bajo y exvasado en forma de collarín y dos asas arqueadas con una marcada acanaladura longitudinal en su superficie exterior. La base termina en un pivote macizo.
+          </p>
+          <p>
+            Estos recipientes formaron parte de los sistemas de transporte y comercialización de productos agroalimentarios durante época romana. Las investigaciones han relacionado las ánforas Haltern 70 con el transporte de vino, derivados del mosto como el <em>defrutum</em> y aceitunas conservadas en diferentes preparados.
+          </p>
+        </section>
+      </div>
+    </div>
+  </template>
+  <template id="ficha-dressel-20f">
+    <div class="ficha-dressel">
+      <div class="ficha-dressel-visor">
+        <iframe title="Dressel 20"
+          data-src="https://sketchfab.com/models/3096c9fa43974b789a7d3b8e6f75995e/embed?autostart=1&amp;autospin=0.2"
+          allow="autoplay; fullscreen; xr-spatial-tracking" allowfullscreen mozallowfullscreen="true"
+          webkitallowfullscreen="true" xr-spatial-tracking execution-while-out-of-viewport
+          execution-while-not-rendered web-share>
+        </iframe>
+      </div>
+      <p class="ficha-dressel-credit">
+        <a href="https://sketchfab.com/3d-models/dressel-20-3096c9fa43974b789a7d3b8e6f75995e"
+          target="_blank" rel="nofollow noopener">Dressel 20</a> by
+        <a href="https://sketchfab.com/ToledoMaria" target="_blank" rel="nofollow noopener">María E.</a> on
+        <a href="https://sketchfab.com" target="_blank" rel="nofollow noopener">Sketchfab</a>
+      </p>
+      <div class="ficha-dressel-contenido">
+        <h2>Dressel 20 F</h2>
+        <p>
+          La presente reconstrucción tridimensional corresponde a un ánfora romana de tipología <strong>Dressel 20</strong>, elaborada a partir del estudio de fragmentos cerámicos recuperados durante la campaña arqueológica de 2025 en el <strong>alfar romano de Cartuja</strong>, situado en el actual Campus Universitario de Cartuja, en Granada.
+        </p>
+        <p>
+          Esta intervención se desarrolló en el marco de las actividades docentes de formación arqueológica de la Universidad de Granada, vinculadas al Prácticum del Grado en Arqueología.
+        </p>
+
+        <section class="dressel-contexto">
+          <h3>01. Contexto histórico</h3>
+          <p>
+            El alfar romano de Cartuja constituye uno de los conjuntos de producción cerámica documentados en el territorio de la antigua <em>Florentia Iliberritana</em>. Las excavaciones realizadas en este complejo han contribuido al conocimiento de las actividades artesanales y de la organización de la producción alfarera en época romana. La <strong>Dressel 20</strong> es una de las tipologías anfóricas más representativas de la producción y comercialización del aceite de oliva de la provincia romana de la Bética.
+          </p>
+          <p>
+            Su fabricación se desarrolló desde el siglo I d. C. hasta el tercer cuarto del siglo III d. C., principalmente en los talleres alfareros distribuidos a lo largo de los valles del Guadalquivir (<em>Baetis</em>) y del Genil (<em>Singilis</em>).
+          </p>
+          <p>
+            Estas ánforas se caracterizan por su cuerpo globular, paredes gruesas, cuello corto, asas robustas y pivote reducido. Su diseño respondía a las necesidades de almacenamiento y transporte del aceite de oliva, constituyendo un elemento fundamental de las redes comerciales del Imperio romano.
+          </p>
+          <p>
+            Dentro de su evolución tipológica, la <strong>Dressel 20 F representa la última fase de desarrollo de este recipiente</strong>, correspondiente a época severiana y postseveriana, durante el siglo III d. C.
+          </p>
+          <p>
+            Esta variante presenta modificaciones morfológicas respecto a los ejemplares anteriores. El cuerpo pierde progresivamente su regularidad esférica, desplazándose su diámetro máximo hacia la mitad inferior del recipiente. El cuello se reduce y se aplasta, mientras que las asas adquieren un perfil marcadamente semicircular, con un espacio interansal de aproximadamente 5-6 cm.
+          </p>
+          <p>
+            Uno de los elementos más característicos es el borde de sección triangular, que se inclina progresivamente hacia el exterior hasta alcanzar, en los ejemplares más tardíos, una posición muy próxima al arranque superior de las asas. Por su parte, el pivote inferior queda reducido a un pequeño botón.
+          </p>
+          <p>
+            Estas transformaciones permiten diferenciar la variante F de las producciones julio-claudias, flavio-trajaneas y antoninianas de la misma familia anfórica.
+          </p>
+          <p>
+            Las ánforas Dressel 20 fueron concebidas principalmente para el transporte de <strong>aceite de oliva bético</strong>, uno de los productos de mayor relevancia económica de la Hispania romana.
+          </p>
+          <p>
+            Los principales centros productores se concentraban en las riberas del Guadalquivir y del Genil, desde donde los recipientes podían integrarse en redes de transporte fluvial y marítimo para abastecer diferentes mercados del Imperio.
+          </p>
+          <p>
+            Una parte significativa de estas exportaciones tenía como destino la ciudad de Roma, donde el Monte Testaccio constituye uno de los testimonios arqueológicos más representativos del consumo y distribución del aceite bético.
+          </p>
+          <p>
+            Durante el siglo III d. C., la producción y comercialización de estos recipientes experimentó importantes transformaciones. La etapa severiana se relaciona con cambios en la organización económica y administrativa del comercio oleario, mientras que la desaparición progresiva de la Dressel 20, durante el tercer cuarto del siglo, marcó el final de una tradición anfórica desarrollada durante más de doscientos años.
+          </p>
+        </section>
+      </div>
+    </div>
+  </template>
+  <template id="ficha-sexi">
+    <article class="ficha-sexi">
+      <img class="ficha-sexi-portada" src="assets/sexi-paleogeografia-portada.png" alt="Mapa comparativo de la evolución de la costa de Sexi en 1962, 1985 y 2026, con geología, ríos y necrópolis">
+      <div class="ficha-sexi-contenido">
+        <div class="ficha-sexi-etiqueta">Documentación/QGIS · Trabajo académico</div>
+        <h2 class="ficha-sexi-titulo">Análisis paleogeográfico y recreación 3D de la Sexi fenicio-púnica</h2>
+        <p>Este proyecto forma parte de un trabajo académico realizado en grupo para la asignatura <em>Protohistoria de Andalucía</em>, centrado en el estudio de la relación entre la evolución del paisaje fluvio-litoral y la distribución de los espacios funerarios de la antigua Sexi (Almuñécar) durante la I Edad del Hierro.</p>
+        <p>La investigación aborda la transformación histórica de la línea de costa y su posible influencia en la localización de las necrópolis de Laurita, Puente de Noy y Monte Velilla, combinando fuentes arqueológicas, geológicas y cartográficas.</p>
+        <p><strong>Mi aportación al proyecto</strong> se centró en el desarrollo de la metodología de análisis territorial mediante QGIS, la georreferenciación y comparación de cartografía histórica, la integración de información geológica y topográfica y la elaboración de los mapas utilizados en el estudio.</p>
+        <p>Asimismo, realicé la recreación tridimensional del paisaje con Blender, a partir de un modelo digital del terreno procesado mediante QGIS y Qgis2threejs. Esta representación permite visualizar de forma aproximada la configuración del antiguo entorno costero y las relaciones espaciales entre el asentamiento y las necrópolis.</p>
+        <p>La reconstrucción se plantea como una interpretación visual del territorio basada en la información disponible, no como una restitución exacta del paisaje antiguo.</p>
+      </div>
+    </article>
   </template>
   <script>
     (() => {
@@ -4975,6 +6741,278 @@
       const nav = document.querySelector('.nav-links');
       toggle.addEventListener('click', () => {const open = toggle.getAttribute('aria-expanded') === 'true'; toggle.setAttribute('aria-expanded', String(!open)); toggle.setAttribute('aria-label', open ? 'Abrir menú' : 'Cerrar menú'); nav.classList.toggle('is-open', !open)});
       nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Abrir menú')}));
+      document.querySelectorAll('.site-header a[href^="#"]').forEach(link => {
+        link.addEventListener('click', event => {
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+          const target = document.querySelector(link.getAttribute('href'));
+          if (!target) return;
+
+          event.preventDefault();
+          if (window.location.hash !== link.hash) window.history.pushState(null, '', link.hash);
+          target.scrollIntoView({ behavior: 'instant', block: 'start' });
+        });
+      });
+      const contactEmailDialog = document.querySelector('#contact-email-dialog');
+      const openContactEmailDialog = document.querySelector('#contact-email-open');
+      const closeContactEmailDialog = document.querySelector('#contact-email-close');
+      openContactEmailDialog?.addEventListener('click', () => {
+        if (contactEmailDialog?.showModal) contactEmailDialog.showModal();
+      });
+      closeContactEmailDialog?.addEventListener('click', () => contactEmailDialog?.close());
+      contactEmailDialog?.addEventListener('click', event => {
+        if (event.target === contactEmailDialog) contactEmailDialog.close();
+      });
+
+      const contactEmailForm = document.querySelector('#contact-email-form');
+      contactEmailForm?.addEventListener('submit', event => {
+        event.preventDefault();
+        const recipient = contactEmailForm.elements.recipient.value;
+        const subject = contactEmailForm.elements.subject.value.trim();
+        const message = contactEmailForm.elements.message.value.trim();
+        const mailto = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+        window.location.href = mailto;
+      });
+
+      function iniciarVideoSeccionSobreMi() {
+        const section = document.querySelector('#sobre-mi');
+        const video = section?.querySelector('.about-video');
+        if (!section || !video) return;
+
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+
+        let sectionActive = false;
+        const startVideo = () => {
+          sectionActive = true;
+          video.pause();
+          if (video.readyState > 0) video.currentTime = 0;
+          video.play()?.catch(() => {});
+        };
+        const stopVideo = () => {
+          sectionActive = false;
+          video.pause();
+          if (video.readyState > 0) video.currentTime = 0;
+        };
+
+        if ('IntersectionObserver' in window) {
+          const videoObserver = new IntersectionObserver(entries => {
+            const entry = entries.find(item => item.target === section);
+            if (!entry) return;
+
+            if (entry.isIntersecting && !sectionActive) {
+              startVideo();
+            } else if (!entry.isIntersecting && sectionActive) {
+              stopVideo();
+            }
+          }, { threshold: 0.01 });
+          videoObserver.observe(section);
+        } else {
+          const updateVideoPlayback = () => {
+            const bounds = section.getBoundingClientRect();
+            const isInViewport = bounds.bottom > 0 && bounds.top < window.innerHeight;
+            if (isInViewport && !sectionActive) startVideo();
+            else if (!isInViewport && sectionActive) stopVideo();
+          };
+          window.addEventListener('scroll', updateVideoPlayback, { passive: true });
+          window.addEventListener('resize', updateVideoPlayback);
+          updateVideoPlayback();
+        }
+
+        document.querySelectorAll('a[href="#sobre-mi"]').forEach(link => {
+          link.addEventListener('click', () => {
+            if (sectionActive) startVideo();
+          });
+        });
+      }
+      iniciarVideoSeccionSobreMi();
+
+      function iniciarAnimacionTitulosSecciones() {
+        const titles = document.querySelectorAll('main .section-title');
+        const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')
+          ?? { matches: false };
+
+        if (!titles.length || reduceMotion.matches || !('IntersectionObserver' in window)) return;
+
+        const projectsTitle = document.querySelector('#proyectos .section-title');
+        const projectQuote = document.querySelector('#proyectos .project-quote');
+        const aboutTitle = document.querySelector('#sobre-mi .section-title');
+        const aboutText = document.querySelector('#sobre-mi .about-text');
+        const studyTags = [...document.querySelectorAll('#sobre-mi .study-tag')];
+        projectQuote?.classList.add('project-quote-pending');
+        const startProjectQuote = () => {
+          if (!projectQuote) return;
+
+          projectQuote.classList.remove('project-quote-pending', 'project-quote-visible');
+          void projectQuote.offsetWidth;
+          projectQuote.classList.add('project-quote-visible');
+        };
+        const resetProjectQuote = () => {
+          if (!projectQuote) return;
+
+          projectQuote.classList.remove('project-quote-visible');
+          projectQuote.classList.add('project-quote-pending');
+        };
+
+        let aboutRevealStarted = false;
+        let studyTagRevealTimers = [];
+        const clearStudyTagRevealTimers = () => {
+          studyTagRevealTimers.forEach(timer => window.clearTimeout(timer));
+          studyTagRevealTimers = [];
+        };
+        const resetAboutReveal = () => {
+          if (!aboutText || !studyTags.length) return;
+
+          clearStudyTagRevealTimers();
+          aboutRevealStarted = false;
+          aboutText.classList.remove('about-text-visible');
+          aboutText.classList.add('about-text-pending');
+          studyTags.forEach(tag => {
+            tag.classList.remove('study-tag-visible');
+            tag.classList.add('study-tag-pending');
+          });
+        };
+        const startAboutReveal = () => {
+          if (!aboutText || !studyTags.length || aboutRevealStarted) return;
+
+          clearStudyTagRevealTimers();
+          aboutRevealStarted = true;
+          aboutText.classList.remove('about-text-pending', 'about-text-visible');
+          void aboutText.offsetWidth;
+          aboutText.classList.add('about-text-visible');
+          studyTags.forEach(tag => {
+            tag.classList.remove('study-tag-visible');
+            tag.classList.add('study-tag-pending');
+          });
+          const timer = window.setTimeout(() => {
+            if (!aboutRevealStarted) return;
+
+            studyTags.forEach(tag => {
+              tag.classList.remove('study-tag-pending', 'study-tag-visible');
+              void tag.offsetWidth;
+              tag.classList.add('study-tag-visible');
+            });
+          }, 260);
+          studyTagRevealTimers.push(timer);
+        };
+
+        if (aboutTitle && aboutText && studyTags.length) {
+          resetAboutReveal();
+        }
+
+        const toolsTitle = document.querySelector('#herramientas .section-title');
+        const toolsCopy = document.querySelector('#herramientas .tools-copy');
+        const toolGroups = [...document.querySelectorAll('#herramientas .tool-group')];
+        let toolsRevealStarted = false;
+        let toolGroupRevealTimers = [];
+
+        const clearToolGroupRevealTimers = () => {
+          toolGroupRevealTimers.forEach(timer => window.clearTimeout(timer));
+          toolGroupRevealTimers = [];
+        };
+        const resetToolsReveal = () => {
+          if (!toolsCopy || !toolGroups.length) return;
+
+          clearToolGroupRevealTimers();
+          toolsRevealStarted = false;
+          toolsCopy.classList.remove('tools-copy-visible');
+          toolsCopy.classList.add('tools-copy-pending');
+          toolGroups.forEach(group => {
+            group.classList.remove('tool-group-visible');
+            group.classList.add('tool-group-pending');
+          });
+        };
+        const completeToolsReveal = () => {
+          if (!toolsCopy || !toolGroups.length) return;
+
+          clearToolGroupRevealTimers();
+          toolsRevealStarted = false;
+          toolsCopy.classList.remove('tools-copy-pending', 'tools-copy-visible');
+          toolGroups.forEach(group => {
+            group.classList.remove('tool-group-pending', 'tool-group-visible');
+          });
+        };
+        const startToolsReveal = () => {
+          if (!toolsCopy || !toolGroups.length || toolsRevealStarted) return;
+
+          clearToolGroupRevealTimers();
+          toolsRevealStarted = true;
+          toolsCopy.classList.remove('tools-copy-pending', 'tools-copy-visible');
+          void toolsCopy.offsetWidth;
+          toolsCopy.classList.add('tools-copy-visible');
+          toolGroups.forEach((group, index) => {
+            group.classList.remove('tool-group-visible');
+            group.classList.add('tool-group-pending');
+            const timer = window.setTimeout(() => {
+              if (!toolsRevealStarted) return;
+
+              group.classList.remove('tool-group-pending', 'tool-group-visible');
+              void group.offsetWidth;
+              group.classList.add('tool-group-visible');
+            }, index * 500);
+            toolGroupRevealTimers.push(timer);
+          });
+        };
+
+        if (toolsTitle && toolsCopy && toolGroups.length) {
+          resetToolsReveal();
+        }
+
+        const visibleTitles = new WeakSet();
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            const title = entry.target;
+            const isInTriggerZone = entry.isIntersecting && entry.intersectionRatio >= .35;
+            const wasInTriggerZone = visibleTitles.has(title);
+
+            if (isInTriggerZone && !wasInTriggerZone) {
+              title.classList.remove('section-title-visible', 'section-title-pending');
+              void title.offsetWidth;
+              title.classList.add('section-title-visible');
+              visibleTitles.add(title);
+              if (title === projectsTitle) startProjectQuote();
+              if (title === aboutTitle) startAboutReveal();
+              if (title === toolsTitle) startToolsReveal();
+            } else if (!isInTriggerZone && wasInTriggerZone) {
+              title.classList.remove('section-title-visible');
+              title.classList.add('section-title-pending');
+              if (title === projectsTitle) resetProjectQuote();
+              if (title === aboutTitle) resetAboutReveal();
+              if (title === toolsTitle) completeToolsReveal();
+              visibleTitles.delete(title);
+            }
+          });
+        }, { threshold: .35 });
+
+        titles.forEach(title => {
+          title.classList.add('section-title-pending');
+          observer.observe(title);
+        });
+
+        if (toolsTitle && toolsCopy && toolGroups.length) {
+          document.querySelectorAll('a[href="#herramientas"]').forEach(link => {
+            link.addEventListener('click', () => {
+              resetToolsReveal();
+              const titleRect = toolsTitle.getBoundingClientRect();
+              const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+              const visibleHeight = Math.max(0,
+                Math.min(titleRect.bottom, viewportHeight) - Math.max(titleRect.top, 0)
+              );
+              const isInTriggerZone = titleRect.height > 0 && visibleHeight / titleRect.height >= .35;
+
+              if (isInTriggerZone) {
+                toolsTitle.classList.remove('section-title-visible', 'section-title-pending');
+                void toolsTitle.offsetWidth;
+                toolsTitle.classList.add('section-title-visible');
+                visibleTitles.add(toolsTitle);
+                startToolsReveal();
+              }
+            });
+          });
+        }
+      }
+      iniciarAnimacionTitulosSecciones();
       /* FILTROS DE PROYECTOS ARKAIKA */
 
       const filters = document.querySelectorAll(
@@ -5036,10 +7074,29 @@
 
       });
       const dialog = document.querySelector('#project-modal');
+      document.querySelectorAll('[data-civil3d-cover]').forEach(cover => {
+        const setDrawing = isDrawing => {
+          cover.classList.toggle('is-drawing', isDrawing);
+          cover.setAttribute('aria-pressed', String(isDrawing));
+          cover.setAttribute('aria-label', isDrawing ? 'Restablecer el dibujo' : 'Trazar las líneas del dibujo');
+        };
+
+        cover.addEventListener('pointerleave', event => {
+          if (event.pointerType !== 'mouse') return;
+          setDrawing(false);
+        });
+
+        cover.addEventListener('click', event => {
+          if (event.pointerType === 'mouse' && window.matchMedia('(hover: hover)').matches) return;
+          event.stopPropagation();
+          setDrawing(!cover.classList.contains('is-drawing'));
+        });
+      });
       // La tarjeta completa y el botón abren la ficha del proyecto.
       document.querySelectorAll('#proyectos .project[data-category]').forEach(card => card.addEventListener('click', event => {
         if (event.target.closest('a')) return;
         const projectImage = card.querySelector('.project-art img');
+        const projectImageSource = projectImage?.getAttribute('src') || card.querySelector('.project-art .paint-complete')?.getAttribute('href');
         const modalImage = dialog.querySelector('.modal-img');
         const title = card.querySelector('.project-title')?.textContent ?? 'Proyecto';
         const info = card.querySelector('.project-meta')?.textContent ?? 'Proyecto';
@@ -5047,9 +7104,9 @@
         dialog.querySelector('#project-modal-title').textContent = title;
         dialog.querySelector('.modal-top span').textContent = info;
         dialog.querySelector('.modal-copy p').textContent = card.dataset.details || summary;
-        if (projectImage) {
-          modalImage.src = projectImage.getAttribute('src');
-          modalImage.alt = projectImage.getAttribute('alt') || title;
+        if (projectImageSource) {
+          modalImage.src = projectImageSource;
+          modalImage.alt = projectImage?.getAttribute('alt') || title;
           modalImage.hidden = false;
         } else {modalImage.hidden = true;}
         /* FICHA AMPLIADA DEL PROYECTO */
@@ -5097,6 +7154,9 @@
         }
         document.body.classList.add('dialog-open');
       }));
+      document.querySelector('[data-open-featured-aljibe]')?.addEventListener('click', () => {
+        document.querySelector('#proyectos .project[data-ficha="ficha-aljibe"]')?.click();
+      });
       const close = () => {dialog.close(); document.body.classList.remove('dialog-open')};
       dialog.querySelector('.modal-close').addEventListener('click', close);
       dialog.addEventListener('close', () => document.body.classList.remove('dialog-open'));
@@ -5341,159 +7401,210 @@
 
       function iniciarAnimacionTrazo() {
         const section = document.querySelector('#del-trazo');
-        const gsap = window.gsap;
         const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')
           ?? { matches: false };
 
-        if (!section || !gsap || reduceMotion.matches || !('IntersectionObserver' in window)) return;
+        if (!section || reduceMotion.matches) return;
 
-        const imageStage = section.querySelector('.trace-image-stage');
+        const stickyContainer = section.querySelector('.trace-grid');
         const watercolor = section.querySelector('.trace-watercolor');
-        const sketch = section.querySelector('.trace-sketch');
         const render = section.querySelector('.trace-render');
         const caption = section.querySelector('.trace-caption');
         const eyebrow = section.querySelector('.eyebrow');
         const title = section.querySelector('.trace-title');
         const description = section.querySelector('.trace-description');
+        const signature = section.querySelector('.trace-signature');
 
-        if (!imageStage || !watercolor || !sketch || !render || !caption || !eyebrow || !title || !description) return;
+        if (!stickyContainer || !watercolor || !render || !caption
+          || !eyebrow || !title || !description || !signature) return;
 
-        const introElements = [watercolor, caption, eyebrow, title, description];
-        let timeline = null;
-        let observer = null;
-        let motionListener = null;
         let revealFrame = 0;
-
-        const clearIntroStyles = () => {
-          introElements.forEach(element => {
-            ['opacity', 'transform', 'transform-origin', 'visibility', 'will-change']
-              .forEach(property => element.style.removeProperty(property));
-          });
+        const clamp = value => Math.max(0, Math.min(1, value));
+        const between = (value, start, end) => clamp((value - start) / (end - start));
+        const setReveal = (element, progress, start, end, distance = 14, direction = 'y') => {
+          const localProgress = between(progress, start, end);
+          const offset = (1 - localProgress) * distance;
+          element.style.opacity = localProgress.toFixed(3);
+          element.style.transform = direction === 'x'
+            ? `translate3d(${-offset}px, 0, 0)`
+            : `translate3d(0, ${offset}px, 0)`;
+          element.style.willChange = 'transform, opacity';
         };
 
-        const stopScrollReveal = () => {
-          window.removeEventListener('scroll', updateRenderReveal);
-          window.removeEventListener('resize', updateRenderReveal);
-          if (revealFrame) {
-            window.cancelAnimationFrame(revealFrame);
-            revealFrame = 0;
+        watercolor.style.opacity = '0';
+        watercolor.style.transform = 'scale(.12)';
+
+        function applyScrollReveal() {
+          const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+          const stickyTop = parseFloat(window.getComputedStyle(stickyContainer).top) || 0;
+          const sectionTop = section.getBoundingClientRect().top;
+          const scrollDistance = Math.max(1, section.offsetHeight - viewportHeight + stickyTop);
+          const progress = clamp((stickyTop - sectionTop) / scrollDistance);
+          const stainProgress = between(progress, 0, .28);
+          const smoothStainProgress = stainProgress * stainProgress * (3 - 2 * stainProgress);
+          watercolor.style.opacity = (.72 * smoothStainProgress).toFixed(3);
+          watercolor.style.transform = `scale(${(.12 + .88 * smoothStainProgress).toFixed(3)})`;
+          if (stainProgress > 0 && stainProgress < 1) {
+            watercolor.style.willChange = 'transform, opacity';
+          } else {
+            watercolor.style.removeProperty('will-change');
           }
-          sketch.style.removeProperty('clip-path');
-          sketch.style.removeProperty('will-change');
-          render.style.removeProperty('clip-path');
-          render.style.removeProperty('will-change');
-        };
 
-        const clearAnimationStyles = () => {
-          clearIntroStyles();
-          stopScrollReveal();
-          if (motionListener) {
-            if (reduceMotion.removeEventListener) {
-              reduceMotion.removeEventListener('change', motionListener);
-            } else {
-              reduceMotion.removeListener?.(motionListener);
-            }
-            motionListener = null;
-          }
-        };
+          const renderProgress = between(progress, .3, .68);
+          const revealEdge = renderProgress * 100;
+          const revealWave = 2.2 * Math.sin(Math.PI * renderProgress);
+          const edgeAt = amount => `${Math.max(0, Math.min(100, revealEdge + revealWave * amount)).toFixed(2)}%`;
+          render.style.clipPath = `polygon(0 0, 100% 0, 100% ${edgeAt(0)}, 86% ${edgeAt(.55)}, 72% ${edgeAt(-.45)}, 57% ${edgeAt(.75)}, 41% ${edgeAt(-.7)}, 24% ${edgeAt(.48)}, 0 ${edgeAt(-.25)})`;
+          render.style.opacity = (.08 + .92 * renderProgress).toFixed(3);
+          render.style.setProperty('--trace-reveal-y', `${(-70 + 60 * renderProgress).toFixed(1)}px`);
+          render.style.willChange = 'clip-path, opacity, transform';
 
-        const showStaticTrace = () => {
-          observer?.disconnect();
-          timeline?.kill();
-          clearAnimationStyles();
-        };
-
-        motionListener = event => {
-          if (event.matches) showStaticTrace();
-        };
-        if (reduceMotion.addEventListener) {
-          reduceMotion.addEventListener('change', motionListener);
-        } else {
-          reduceMotion.addListener?.(motionListener);
+          setReveal(caption, progress, .54, .72, 14);
+          setReveal(eyebrow, progress, 0, .14, 12);
+          setReveal(title, progress, .03, .2, 36, 'x');
+          setReveal(description, progress, .08, .27, 14);
+          setReveal(signature, progress, .72, .78, 18);
         }
 
-        try {
-          gsap.set(watercolor, { autoAlpha: 0, scale: .94, transformOrigin: '50% 50%', willChange: 'transform, opacity' });
-          gsap.set(sketch, { clipPath: 'inset(0 0 0 0)', willChange: 'clip-path' });
-          gsap.set(render, { clipPath: 'inset(0 0 100% 0)', willChange: 'clip-path' });
-          gsap.set([caption, eyebrow, description], { y: 14, autoAlpha: 0, willChange: 'transform, opacity' });
-          gsap.set(title, { x: -36, autoAlpha: 0, willChange: 'transform, opacity' });
-        } catch (error) {
-          clearAnimationStyles();
-          console.warn('No se pudo preparar la animación de Del trazo a la materia.', error);
-          return;
-        }
-
-        function updateRenderReveal() {
+        function scheduleScrollReveal() {
           if (revealFrame) return;
           revealFrame = window.requestAnimationFrame(() => {
             revealFrame = 0;
-            const stageTop = imageStage.getBoundingClientRect().top;
-            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-            const start = viewportHeight * .88;
-            const end = viewportHeight * .16;
-            const progress = Math.max(0, Math.min(1, (start - stageTop) / (start - end)));
-            const renderProgress = Math.max(0, Math.min(1, .5 + (progress - .495) / .89));
-            const hiddenBottom = ((1 - renderProgress) * 100).toFixed(2);
-            const hiddenSketchTop = (progress * 100).toFixed(2);
-            render.style.clipPath = `inset(0 0 ${hiddenBottom}% 0)`;
-            sketch.style.clipPath = `inset(${hiddenSketchTop}% 0 0 0)`;
+            applyScrollReveal();
           });
         }
 
-        window.addEventListener('scroll', updateRenderReveal, { passive: true });
-        window.addEventListener('resize', updateRenderReveal);
-        updateRenderReveal();
-
-        observer = new IntersectionObserver(entries => {
-          if (!entries.some(entry => entry.isIntersecting)) return;
-          observer.disconnect();
-
-          try {
-            timeline = gsap.timeline({ onComplete: clearIntroStyles });
-            timeline.to(watercolor, {
-              autoAlpha: 1,
-              scale: 1,
-              duration: .82,
-              ease: 'power2.out'
-            }, 0);
-            timeline.to(caption, {
-              y: 0,
-              autoAlpha: 1,
-              duration: .48,
-              ease: 'power2.out'
-            }, .1);
-            timeline.to(eyebrow, {
-              y: 0,
-              autoAlpha: 1,
-              duration: .42,
-              ease: 'power2.out'
-            }, .08);
-            timeline.to(title, {
-              x: 0,
-              autoAlpha: 1,
-              duration: .62,
-              ease: 'power3.out'
-            }, .08);
-            timeline.to(description, {
-              y: 0,
-              autoAlpha: 1,
-              duration: .56,
-              ease: 'power2.out'
-            }, .08);
-          } catch (error) {
-            clearAnimationStyles();
-            console.warn('No se pudo iniciar la animación de Del trazo a la materia.', error);
-          }
-        }, { threshold: .22, rootMargin: '0px 0px -8% 0px' });
-
-        observer.observe(section);
+        window.addEventListener('scroll', scheduleScrollReveal, { passive: true });
+        window.addEventListener('resize', scheduleScrollReveal);
+        applyScrollReveal();
       }
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', iniciarAnimacionTrazo, { once: true });
       } else {
         iniciarAnimacionTrazo();
       }
+
+      function iniciarAnimacionGaleriaHerramientas() {
+        const gallery = document.querySelector('#herramientas .tools-gallery');
+        const watercolor = gallery?.querySelector('.tools-watercolor-reveal');
+        const images = [
+          gallery?.querySelector('.tools-anforits'),
+          gallery?.querySelector('.tools-vaso'),
+          gallery?.querySelector('.tools-cuenco')
+        ];
+        const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')
+          ?? { matches: false };
+
+        if (!gallery || !watercolor || images.some(image => !image) || reduceMotion.matches
+          || !('IntersectionObserver' in window) || !Element.prototype.animate) return;
+
+        watercolor.style.opacity = '0';
+        watercolor.style.transform = 'scale(.12)';
+        images.forEach(image => {
+          image.style.opacity = '0';
+          image.style.transform = 'translate3d(0, 70px, 0)';
+        });
+
+        let started = false;
+        let watercolorAnimation = null;
+        let animations = [];
+        const resetHidden = () => {
+          watercolorAnimation?.cancel();
+          watercolorAnimation = null;
+          animations.forEach(animation => animation.cancel());
+          animations = [];
+          watercolor.style.opacity = '0';
+          watercolor.style.transform = 'scale(.12)';
+          watercolor.style.removeProperty('will-change');
+          images.forEach(image => {
+            image.style.opacity = '0';
+            image.style.transform = 'translate3d(0, 70px, 0)';
+            image.style.removeProperty('will-change');
+          });
+        };
+        const revealStatic = () => {
+          watercolorAnimation?.cancel();
+          watercolorAnimation = null;
+          animations.forEach(animation => animation.cancel());
+          animations = [];
+          watercolor.style.opacity = '1';
+          watercolor.style.transform = 'none';
+          watercolor.style.removeProperty('will-change');
+          images.forEach(image => {
+            image.style.opacity = '1';
+            image.style.transform = 'none';
+            image.style.removeProperty('will-change');
+          });
+        };
+
+        const observer = new IntersectionObserver(entries => {
+          if (reduceMotion.matches) return;
+
+          const isInTriggerZone = entries.some(entry =>
+            entry.isIntersecting && entry.intersectionRatio >= 0.45
+          );
+
+          if (isInTriggerZone && !started) {
+            started = true;
+            resetHidden();
+            watercolor.style.willChange = 'transform, opacity';
+            watercolorAnimation = watercolor.animate([
+              { opacity: 0, transform: 'scale(.12)', offset: 0 },
+              { opacity: 1, transform: 'scale(1.04)', offset: .82 },
+              { opacity: 1, transform: 'scale(1)', offset: 1 }
+            ], {
+              duration: 1300,
+              easing: 'cubic-bezier(.2, .65, .3, 1)',
+              fill: 'both'
+            });
+
+            watercolorAnimation.onfinish = () => {
+              watercolor.style.opacity = '1';
+              watercolor.style.transform = 'none';
+              watercolor.style.removeProperty('will-change');
+              watercolorAnimation.cancel();
+              watercolorAnimation = null;
+            };
+
+            images.forEach((image, index) => {
+              image.style.willChange = 'transform, opacity';
+              const animation = image.animate([
+                { opacity: 0, transform: 'translate3d(0, 70px, 0)', offset: 0 },
+                { opacity: 0.94, transform: 'translate3d(0, -8px, 0)', offset: 0.78 },
+                { opacity: 1, transform: 'translate3d(0, 2px, 0)', offset: 0.91 },
+                { opacity: 1, transform: 'translate3d(0, 0, 0)', offset: 1 }
+              ], {
+                duration: 1600,
+                delay: index * 150,
+                easing: 'cubic-bezier(.2, .65, .3, 1)',
+                fill: 'both'
+              });
+
+              animations.push(animation);
+              animation.onfinish = () => {
+                image.style.opacity = '1';
+                image.style.transform = 'none';
+                image.style.removeProperty('will-change');
+                animation.cancel();
+              };
+            });
+          } else if (!isInTriggerZone && started) {
+            started = false;
+            resetHidden();
+          }
+        }, { threshold: 0.45 });
+
+        observer.observe(gallery);
+        if (reduceMotion.addEventListener) {
+          reduceMotion.addEventListener('change', event => {
+            if (event.matches) {
+              observer.disconnect();
+              revealStatic();
+            }
+          });
+        }
+      }
+      iniciarAnimacionGaleriaHerramientas();
 
       document.querySelector('#year').textContent = String(new Date().getFullYear());
     })();
